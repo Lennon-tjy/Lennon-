@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lennon</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1>应急话术</h1>
+
+    <div class="search-bar">
+      <input type="text" placeholder="搜索内容...">
+      <i class="fas fa-search"></i>
+    </div>
+
+  </div>
+
+  <div class="speech-container">
+    <div class="speech-box">
+      <div class="speech-number">1</div>
+      <div class="speech-content">先别低着头不说话呀，我不是要怪你——其实很多同学都有过"作业没做完"的情况，你慢慢说你的难处，咱们一起看看怎么解决，不会让你一个人扛着。</div>
+    </div>
+
+    <div class="speech-box">
+      <div class="speech-number">2</div>
+      <div class="speech-content">我现在不想随便说"该怎么补",怕没考虑到你的情况反而让你更有压力——给我5分钟想想，等会儿咱们一起商量一个你能接受的补作业节奏，行吗？</div>
+    </div>
+
+    <div class="speech-box">
+      <div class="speech-number">3</div>
+      <div class="speech-content">没交作业不是"你没做好"，可能只是这次遇到了小麻烦——是题目太难，还是忘了记作业？咱们先把麻烦找出来，再一起解决，比纠结对错更有用。</div>
+    </div>
+
+    <div class="speech-box">
+      <div class="speech-number">4</div>
+      <div class="speech-content">我看你现在有点抵触，特别能理解——谁都不想因为作业被关注，但咱们现在把问题聊开，下次就能少点这种"怕被找"的压力，对不对？</div>
+    </div>
+  </div>
+
+</body>
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Microsoft YaHei', sans-serif;
+  }
+
+  body {
+    background-color: #e6f2ff;
+    /* 淡蓝色背景 */
+    min-height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 800px;
+    text-align: center;
+    top: 0%;
+  }
+
+  h1 {
+    color: #2c3e50;
+    margin-bottom: 30px;
+    font-size: 2.2rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+  }
+
+
+  .search-bar {
+    display: inline-block;
+    flex-grow: 1;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 57px;
+    position: relative;
+  }
+
+  .search-bar input {
+    width: 100%;
+    padding: 12px 20px;
+    border: 1px solid #c5d9f8;
+    border-radius: 30px;
+    background-color: white;
+    font-size: 16px;
+    outline: none;
+    transition: all 0.3s;
+  }
+
+  .search-bar input:focus {
+    border-color: #2a7de1;
+    box-shadow: 0 0 0 2px rgba(42, 125, 225, 0.2);
+  }
+
+  .search-bar i {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #8a9bb2;
+  }
+
+  .speech-container {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .speech-box {
+    background-color: white;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    position: relative;
+    border-left: 5px solid #3498db;
+  }
+
+  .speech-box:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+    background-color: #f8fafc;
+  }
+
+  .speech-number {
+    position: absolute;
+    top: -12px;
+    left: 20px;
+    background-color: #3498db;
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+
+  .speech-content {
+    color: #2c3e50;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    text-align: left;
+  }
+
+  @media (max-width: 600px) {
+    h1 {
+      font-size: 1.8rem;
+    }
+
+    .speech-content {
+      font-size: 1rem;
+    }
+
+    .search-bar {
+      max-width: 100%;
+      margin: 15px 0;
+    }
+
+
+    .speech-box {
+      padding: 20px;
+    }
+  }
+</style>
+
+</html>

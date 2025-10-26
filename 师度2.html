@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lennon</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <h1 class="situation">情景案例库</h1>
+      <div class="search-bar">
+        <input type="text" placeholder="搜索内容...">
+        <i class="fas fa-search"></i>
+      </div>
+  </div>
+  </header>
+
+  <div class="cases-grid">
+
+    <div class="case-card">
+      <div class="case-image">
+        <img src="img/1.jpg">
+      </div>
+      <div class="case-content">
+        <h3 class="case-title">解诀方案</h3>
+        <p>针对课堂公然顶撞问题的专业解决方案，帮助教师有效管理课堂秩序。</p>
+        <a href="#" class="learn-btn">立即学习</a>
+      </div>
+    </div>
+
+    <div class="case-card">
+      <div class="case-image">
+        <img src="img/2.jpg">
+      </div>
+      <div class="case-content">
+        <h3 class="case-title">解决方案</h3>
+        <p>针对午休持续吵闹问题的有效解决方案，营造安静舒适的午休环境。</p>
+        <a href="#" class="learn-btn">立即学习</a>
+      </div>
+    </div>
+
+    <div class="case-card">
+      <div class="case-image">
+        <img src="img/3.jpg">
+      </div>
+      <div class="case-content">
+        <h3 class="case-title">解决方案</h3>
+        <p>针对学生上课传纸条问题的实用解决方案，提高课堂教学效率。</p>
+        <a href="#" class="learn-btn">立即学习</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="fixed-box home-box" onclick="goHome()">
+    返回<br>首页
+  </div>
+
+  <div class="fixed-box feedback-box" onclick="openFeedback()">
+    意见<br>反馈
+  </div>
+
+
+  <style>
+    .situation {
+      text-align: center;
+      font-size: 35px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Microsoft YaHei', Arial, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #f0f7ff 0%, #f0f9ff 100%);
+      color: #333;
+      line-height: 1.6;
+      padding: 20px;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+      padding: 20px 0;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: #2c3e50;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+      color: #7f8c8d;
+    }
+
+    .cases-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+
+    .case-card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .case-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+    }
+
+    .case-image {
+      height: 350px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .case-image img {
+      width: 100%;
+      height: 120%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .case-card:hover .case-image img {
+      transform: scale(1.05);
+    }
+
+    .case-content {
+      padding: 20px;
+    }
+
+    .case-title {
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+      color: #2c3e50;
+    }
+
+    .learn-btn {
+      display: inline-block;
+      background: #3498db;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s ease;
+      margin-top: 15px;
+    }
+
+    .learn-btn:hover {
+      background: #2980b9;
+    }
+
+    .fixed-box {
+      position: fixed;
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 0.9rem;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      z-index: 100;
+    }
+
+    .fixed-box:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .home-box {
+      bottom: 30px;
+      left: 30px;
+      background: #3498db;
+    }
+
+    .feedback-box {
+      bottom: 30px;
+      right: 30px;
+      background: #2ecc71;
+    }
+
+    .search-bar {
+      display: inline-block;
+      flex-grow: 1;
+      width: 100%;
+      max-width: 800px;
+      margin: 0 57px;
+      position: relative;
+    }
+
+    .search-bar input {
+      width: 100%;
+      padding: 12px 20px;
+      border: 1px solid #c5d9f8;
+      border-radius: 30px;
+      background-color: white;
+      font-size: 16px;
+      outline: none;
+      transition: all 0.3s;
+    }
+
+    .search-bar input:focus {
+      border-color: #2a7de1;
+      box-shadow: 0 0 0 2px rgba(42, 125, 225, 0.2);
+    }
+
+    .search-bar i {
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #8a9bb2;
+    }
+
+
+    @media (max-width: 768px) {
+      .cases-grid {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      .search-bar {
+        max-width: 100%;
+        margin: 15px 0;
+      }
+
+
+      .fixed-box {
+        width: 60px;
+        height: 60px;
+        font-size: 0.8rem;
+      }
+    }
+  </style>
+
+</body>
+
+</html>

@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lennon</title>
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <h1>AI话术教练</h1>
+    </header>
+
+    <section class="cases-section">
+      <h2 class="cases-title">学生拒交作业动画</h2>
+      <div class="cases-container">
+        <div class="case-card">
+          <img src="img/4.jpg" class="case-image">
+        </div>
+
+        <div class="case-card">
+          <img src="img/5.jpg" class="case-image">
+        </div>
+
+        <div class="case-card">
+          <img src="img/6.jpg" class="case-image">
+        </div>
+
+        <div class="case-card">
+          <img src="img/7.jpg" class="case-image">
+        </div>
+
+      </div>
+    </section>
+
+    <section class="input-section">
+      <h2 class="input-title">输入您的话术内容</h2>
+      <div class="input-container">
+        <input type="text" class="text-input" placeholder="请输入您想练习的话术或场景...">
+        <button class="mic-btn" id="micButton">
+          <span class="mic-icon">🎤</span>
+        </button>
+      </div>
+      <button class="generate-btn">生成优化话术</button>
+    </section>
+
+    <section class="output-section">
+      <h2 class="output-title">AI优化后的话术</h2>
+      <div class="output-text" id="outputText">
+
+      </div>
+    </section>
+  </div>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    }
+
+    body {
+      background-color: #f0f8ff;
+      color: #333;
+      line-height: 1.6;
+      padding: 20px;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    h1 {
+      color: #1e88e5;
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+    }
+
+    .cases-section {
+      margin-bottom: 40px;
+    }
+
+    .cases-title {
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+      color: #1e88e5;
+    }
+
+    .cases-container {
+      display: flex;
+      overflow-x: auto;
+      padding: 15px 5px;
+      gap: 20px;
+      scroll-behavior: smooth;
+    }
+
+    .cases-container::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    .cases-container::-webkit-scrollbar-track {
+      background: #e1f5fe;
+      border-radius: 4px;
+    }
+
+    .cases-container::-webkit-scrollbar-thumb {
+      background: #4fc3f7;
+      border-radius: 4px;
+    }
+
+    .case-card {
+      flex: 0 0 auto;
+      width: 280px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(30, 136, 229, 0.15);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .case-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .case-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .input-section {
+      background: white;
+      border-radius: 12px;
+      padding: 25px;
+      box-shadow: 0 4px 12px rgba(30, 136, 229, 0.15);
+      margin-bottom: 30px;
+    }
+
+    .input-title {
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+      color: #1e88e5;
+    }
+
+    .input-container {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .text-input {
+      flex: 1;
+      padding: 15px;
+      border: 2px solid #bbdefb;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: border-color 0.3s;
+    }
+
+    .text-input:focus {
+      outline: none;
+      border-color: #1e88e5;
+    }
+
+    .mic-btn {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: #1e88e5;
+      color: white;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s;
+      box-shadow: 0 4px 8px rgba(30, 136, 229, 0.3);
+    }
+
+    .mic-btn:hover {
+      background: #1565c0;
+      transform: scale(1.05);
+    }
+
+    .mic-btn.recording {
+      background: #e53935;
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(229, 57, 53, 0.7);
+      }
+
+      70% {
+        box-shadow: 0 0 0 10px rgba(229, 57, 53, 0);
+      }
+
+      100% {
+        box-shadow: 0 0 0 0 rgba(229, 57, 53, 0);
+      }
+    }
+
+    .mic-icon {
+      font-size: 1.5rem;
+    }
+
+    .generate-btn {
+      width: 100%;
+      padding: 15px;
+      background: #1e88e5;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .generate-btn:hover {
+      background: #1565c0;
+    }
+
+    .output-section {
+      margin-top: 30px;
+      background: white;
+      border-radius: 12px;
+      padding: 25px;
+      box-shadow: 0 4px 12px rgba(30, 136, 229, 0.15);
+    }
+
+    .output-title {
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+      color: #1e88e5;
+    }
+
+    .output-text {
+      min-height: 120px;
+      padding: 15px;
+      border: 2px solid #bbdefb;
+      border-radius: 8px;
+      background: #f9fdff;
+      color: #555;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 10px;
+      }
+
+      h1 {
+        font-size: 1.8rem;
+      }
+
+      .case-card {
+        width: 240px;
+        height: 180px;
+      }
+
+      .input-container {
+        flex-direction: column;
+      }
+
+      .mic-btn {
+        align-self: center;
+        width: 70px;
+        height: 70px;
+      }
+    }
+  </style>
+
+
+  <script>
+    // 麦克风按钮交互
+    const micButton = document.getElementById('micButton');
+    const outputText = document.getElementById('outputText');
+
+    micButton.addEventListener('click', function () {
+      if (this.classList.contains('recording')) {
+        // 停止录音
+        this.classList.remove('recording');
+        this.innerHTML = '<span class="mic-icon">🎤</span>';
+        outputText.textContent = "已停止录音，正在分析您的话术...";
+      }
+      else {
+        // 开始录音
+        this.classList.add('recording');
+        this.innerHTML = '<span class="mic-icon">⏹️</span>';
+        outputText.textContent = "正在聆听您的话术...请开始说话";
+      }
+    });
+
+    // 生成按钮交互
+    const generateButton = document.querySelector('.generate-btn');
+    const textInput = document.querySelector('.text-input');
+
+    generateButton.addEventListener('click', function () {
+      if (textInput.value.trim() === '') {
+        outputText.textContent = "请输入您想优化的话术内容";
+        return;
+      }
+
+      outputText.textContent = "正在分析您的话术，请稍候...";
+
+    })
+  </script>
+</body>
+
+</html>
