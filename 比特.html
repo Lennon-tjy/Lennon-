@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lennon</title>
+  </head>
+
+  <body>
+    <div class="contain">
+      <div class="stars"></div>
+      <div class="ball1"></div>
+      <div class="ball2"></div>
+    </div>
+
+    <div class="card">
+      <div class="input" id="input">0</div>
+
+      <div class="buttons">
+        <button class="c" onclick="clearDisplay()">C</button>
+
+        <button onclick="appendToDisplay('(')">(</button>
+        <button onclick="appendToDisplay(')')">)</button>
+
+        <button class="num" onclick="appendToDisplay('/')">÷</button>
+
+        <button onclick="appendToDisplay('7')">7</button>
+        <button onclick="appendToDisplay('8')">8</button>
+        <button onclick="appendToDisplay('9')">9</button>
+
+        <button class="num" onclick="appendToDisplay('*')">x</button>
+
+        <button onclick="appendToDisplay('4')">4</button>
+        <button onclick="appendToDisplay('5')">5</button>
+        <button onclick="appendToDisplay('6')">6</button>
+
+        <button class="num" onclick="appendToDisplay('-')">-</button>
+
+        <button onclick="appendToDisplay('1')">1</button>
+        <button onclick="appendToDisplay('2')">2</button>
+        <button onclick="appendToDisplay('3')">3</button>
+
+        <button class="num" onclick="appendToDisplay('+')">+</button>
+
+        <button onclick="appendToDisplay('00')">00</button>
+        <button onclick="appendToDisplay('0')">0</button>
+        <button onclick="appendToDisplay('.')">.</button>
+
+        <button class="equal" onclick="calculateResult()">=</button>
+      </div>
+    </div>
+
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      .contain {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #0a0a1a;
+      }
+
+      .stars {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        z-index: 0;
+      }
+
+      .stars::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(
+            2px 2px at 20px 30px,
+            #ffffff,
+            rgba(0, 0, 0, 0)
+          ),
+          radial-gradient(2px 2px at 40px 70px, #ffffff, rgba(0, 0, 0, 0)),
+          radial-gradient(2px 2px at 50px 160px, #ffffff, rgba(0, 0, 0, 0)),
+          radial-gradient(2px 2px at 90px 40px, #ffffff, rgba(0, 0, 0, 0)),
+          radial-gradient(2px 2px at 130px 80px, #ffffff, rgba(0, 0, 0, 0)),
+          radial-gradient(2px 2px at 160px 120px, #ffffff, rgba(0, 0, 0, 0)),
+          radial-gradient(2px 2px at 220px 190px, #ffffff, rgba(0, 0, 0, 0)),
+          radial-gradient(2px 2px at 270px 60px, #ffffff, rgba(0, 0, 0, 0)),
+          radial-gradient(2px 2px at 300px 150px, #ffffff, rgba(0, 0, 0, 0)),
+          radial-gradient(2px 2px at 320px 200px, #ffffff, rgba(0, 0, 0, 0)),
+          radial-gradient(3px 3px at 60px 220px, #88f, rgba(0, 0, 0, 0)),
+          radial-gradient(3px 3px at 100px 280px, #88f, rgba(0, 0, 0, 0)),
+          radial-gradient(3px 3px at 150px 320px, #88f, rgba(0, 0, 0, 0)),
+          radial-gradient(3px 3px at 200px 250px, #88f, rgba(0, 0, 0, 0)),
+          radial-gradient(3px 3px at 250px 300px, #88f, rgba(0, 0, 0, 0)),
+          radial-gradient(1px 1px at 80px 100px, #f66, rgba(0, 0, 0, 0)),
+          radial-gradient(1px 1px at 120px 180px, #f66, rgba(0, 0, 0, 0)),
+          radial-gradient(1px 1px at 180px 240px, #f66, rgba(0, 0, 0, 0)),
+          radial-gradient(1px 1px at 240px 140px, #f66, rgba(0, 0, 0, 0)),
+          radial-gradient(1px 1px at 290px 280px, #f66, rgba(0, 0, 0, 0));
+        background-repeat: repeat;
+        background-size: 300px 300px;
+        animation: starAnimation 40s linear infinite;
+        opacity: 0.8;
+      }
+
+      @keyframes starAnimation {
+        0% {
+          transform: translate(0, 0);
+        }
+        100% {
+          transform: translate(-400px, -400px);
+        }
+      }
+
+      .stars::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(
+            2px 2px at 100px 100px,
+            #ffffff,
+            rgba(0, 0, 0, 0)
+          ),
+          radial-gradient(2px 2px at 200px 200px, #ffffff, rgba(0, 0, 0, 0)),
+          radial-gradient(2px 2px at 300px 300px, #ffffff, rgba(0, 0, 0, 0)),
+          radial-gradient(2px 2px at 400px 150px, #ffffff, rgba(0, 0, 0, 0)),
+          radial-gradient(2px 2px at 500px 250px, #ffffff, rgba(0, 0, 0, 0));
+        background-repeat: repeat;
+        background-size: 400px 400px;
+        animation: twinkleAnimation 3s ease-in-out infinite alternate;
+        opacity: 0;
+      }
+
+      @keyframes twinkleAnimation {
+        0% {
+          opacity: 0;
+        }
+        50% {
+          opacity: 0.9;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+
+      .ball1 {
+        position: absolute;
+        top: 10%;
+        left: 15%;
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle at 30% 30%,
+          #0a0a1a 60%,
+          rgb(237, 240, 217) 30%,
+          yellow 70%
+        );
+        box-shadow: 0 0 20px rgba(248, 248, 249, 0.5);
+        animation: one 3s linear infinite alternate;
+      }
+
+      .ball2 {
+        position: absolute;
+        bottom: 15%;
+        right: 10%;
+        width: 220px;
+        height: 220px;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle at 40% 40%,
+          #fff 0%,
+          #f66 30%,
+          #a22 80%
+        );
+        box-shadow: 0 0 30px rgba(255, 100, 100, 0.6);
+        animation: two 3s linear infinite alternate;
+      }
+
+      @keyframes one {
+        from {
+          transform: translateY(0);
+        }
+        to {
+          transform: translateY(-45px);
+        }
+      }
+
+      @keyframes two {
+        0% {
+          transform: translateY(0);
+        }
+        100% {
+          transform: translateY(-20px);
+        }
+      }
+
+      .card {
+        width: 320px;
+        margin: 200px auto;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        background: #f9f9f9;
+        position: relative;
+        z-index: 2;
+      }
+
+      .card::after {
+        content: "";
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background: #c5d9f8;
+        border-radius: 8px;
+        inset: 0;
+        z-index: -1;
+        filter: blur(30px);
+        opacity: 0.6;
+      }
+
+      .input {
+        width: 95%;
+        height: 60px;
+        margin-bottom: 20px;
+        padding: 0 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 24px;
+        text-align: right;
+        line-height: 60px;
+        background: #fff;
+        overflow: hidden;
+        white-space: nowrap;
+      }
+
+      .buttons {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 10px;
+      }
+
+      button {
+        height: 60px;
+        border: none;
+        border-radius: 4px;
+        font-size: 20px;
+        cursor: pointer;
+        background: #e0e0e0;
+        transition: background 0.2s;
+      }
+
+      button:hover {
+        background: #ccc;
+      }
+
+      .num,
+      .equal {
+        background: #ff9500;
+        color: #fff;
+      }
+      .num:hover,
+      .equal:hover {
+        background: #e68900;
+      }
+
+      .c {
+        background: #ff3b30;
+        color: #fff;
+      }
+      .c:hover {
+        background: #e03024;
+      }
+    </style>
+
+    <script>
+      function appendToDisplay(value) {
+        const input = document.getElementById("input");
+
+        if (input.textContent === "0" && value !== ".") {
+          input.textContent = value;
+        } else {
+          input.textContent += value;
+        }
+      }
+
+      function clearDisplay() {
+        document.getElementById("input").textContent = "0";
+      }
+
+      function calculateResult() {
+        const input = document.getElementById("input");
+        try {
+          const result = eval(
+            input.textContent.replace("x", "*").replace("÷", "/")
+          );
+
+          input.textContent = result.toFixed(6).replace(/\.?0*$/, "");
+        } catch (error) {
+          input.textContent = "错误";
+        }
+      }
+    </script>
+  </body>
+</html>
