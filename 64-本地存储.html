@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //本地存储分为localStorage和sessionStorage
+      //本地存储只能存储字符串
+      //localStorage存储的数据会永久保存，浏览器关闭也会存在
+      //存储一个名字
+      localStorage.setItem("uname", "pink"); //在Application中查看
+
+      //获取
+      console.log(localStorage.getItem("uname"));
+
+      //删除本地存储
+      // localStorage.removeItem("uname");
+
+      //更改
+      localStorage.setItem("uname", "red");
+
+      //存储年龄
+      //本地存储只能存储字符串
+      localStorage.setItem("age", 18);
+      //获取年龄
+      console.log(localStorage.getItem("age"));
+
+      //sessionStorage关闭浏览器窗口后数据会丢失
+      //sessionStorage用法和localStorage相同
+      sessionStorage.setItem("username", "blue");
+      //获取
+      console.log(sessionStorage.getItem("username"));
+    </script>
+  </body>
+</html>

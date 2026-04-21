@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>学生信息表</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: #f7f0ff;
+        font-family: "微软雅黑";
+      }
+
+      h1 {
+        text-align: center;
+        margin: 100px 0 50px;
+      }
+
+      /* 新增学员模块 */
+      .info {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+      }
+
+      .info label input {
+        border: 1px solid #ccc;
+        outline: none;
+        border-radius: 5px;
+      }
+
+      .info .uname {
+        width: 100px;
+        height: 25px;
+        padding-left: 5px;
+      }
+
+      .info .age {
+        width: 50px;
+        height: 25px;
+        padding-left: 5px;
+      }
+
+      .info .gender {
+        width: 60px;
+        height: 25px;
+        font-size: 15px;
+        outline: none;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        cursor: pointer;
+      }
+
+      .info .salary {
+        width: 100px;
+        height: 25px;
+        padding-left: 5px;
+      }
+
+      .info .city {
+        width: 70px;
+        height: 25px;
+        font-size: 14px;
+        outline: none;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        cursor: pointer;
+      }
+
+      .info button {
+        width: 60px;
+        height: 25px;
+        font-size: 14px;
+        line-height: 25px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      /* 就业榜模块 */
+      table,
+      tr,
+      th,
+      td {
+        border: 1px solid #ccc;
+        border-collapse: collapse;
+        padding: 10px 30px;
+      }
+
+      table {
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      thead th {
+        background-color: #cfe5ff;
+      }
+
+      tbody tr {
+        background-color: #fff;
+        cursor: pointer;
+      }
+
+      tbody td a {
+        text-decoration: none;
+        color: #000;
+        font-size: 15px;
+      }
+
+      tbody tr:hover {
+        background-color: #f8f6f6;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>新增学员</h1>
+    <form class="info" autocomplete="off">
+      <!-- 姓名 -->
+      <label>姓名：<input type="text" class="uname" name="uname" /></label>
+      <!-- 年龄 -->
+      <label>年龄：<input type="text" class="age" name="age" /></label>
+      <!-- 性别 -->
+      <label
+        >性别：<select name="gender" class="gender">
+          <option value="男">男</option>
+          <option value="女">女</option>
+        </select></label
+      >
+      <!-- 薪资 -->
+      <label>薪资：<input type="text" class="salary" name="salary" /></label>
+      <!-- 就业城市 -->
+      <label
+        >就业城市：<select name="city" class="city">
+          <option value="北京">北京</option>
+          <option value="上海">上海</option>
+          <option value="广州">广州</option>
+          <option value="深圳">深圳</option>
+        </select></label
+      >
+      <!-- 录入按钮 -->
+      <button class="add">录入</button>
+    </form>
+
+    <h1>就业榜</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>学号</th>
+          <th>姓名</th>
+          <th>年龄</th>
+          <th>性别</th>
+          <th>薪资</th>
+          <th>就业城市</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <!-- <tr>
+          <td>1001</td>
+          <td>张三</td>
+          <td>18</td>
+          <td>男</td>
+          <td>10000</td>
+          <td>北京</td>
+          <td><a href="#">删除</a></td>
+        </tr> -->
+      </tbody>
+    </table>
+
+    <script>
+      //获取元素
+      const uname = document.querySelector(".uname");
+      const age = document.querySelector(".age");
+      const gender = document.querySelector(".gender");
+      const salary = document.querySelector(".salary");
+      const city = document.querySelector(".city");
+      const tbody = document.querySelector("tbody");
+      //获取所以带有name属性的元素
+      const items = document.querySelectorAll("[name]");
+
+      //空数组，之后增加和删除都是对这个数组进行操作
+      const arr = [];
+      //新增学员录入模块
+      //表单提交事件
+      const info = document.querySelector(".info");
+      info.addEventListener("submit", function (e) {
+        //阻止默认跳转行为
+        e.preventDefault();
+        // console.log(11);
+
+        //在这里进行表单验证，如果有空值，直接中断
+        //先遍历
+        for (let i = 0; i < items.length; i++) {
+          if (items[i].value === "") {
+            return alert("输入内容不能为空");
+          }
+        }
+
+        //创建新的对象
+        const obj = {
+          stuId: arr.length + 1,
+          uname: uname.value,
+          age: age.value,
+          gender: gender.value,
+          salary: salary.value,
+          city: city.value,
+        };
+        // console.log(obj);
+        //追加给数组
+        arr.push(obj);
+        // console.log(arr);
+        //清空表单内容
+        info.reset();
+        //调用渲染函数
+        render();
+      });
+
+      //增加和删除的复用渲染函数
+      function render() {
+        //先清空tbody前一次点击录入的内容，防止重复渲染
+        tbody.innerHTML = "";
+        for (let i = 0; i < arr.length; i++) {
+          //生成tr
+          const tr = document.createElement("tr");
+          tr.innerHTML = `
+          <tr>
+          <td>${arr[i].stuId}</td>
+          <td>${arr[i].uname}</td>
+          <td>${arr[i].age}</td>
+          <td>${arr[i].gender}</td>
+          <td>${arr[i].salary}</td>
+          <td>${arr[i].city}</td>
+          <td><a href="#" data-id=${i}>删除</a></td>
+        </tr>
+          `;
+          //追加给tbody
+          document.querySelector("tbody").appendChild(tr);
+        }
+      }
+
+      //删除操作
+      //事件委托
+      tbody.addEventListener("click", function (e) {
+        if (e.target.tagName === "A") {
+          // console.log(e.target.dataset.id);
+          //删除数组中对应数据
+          arr.splice(e.target.dataset.id, 1);
+          //调用渲染函数，重新渲染数据
+          render();
+        }
+      });
+    </script>
+  </body>
+</html>

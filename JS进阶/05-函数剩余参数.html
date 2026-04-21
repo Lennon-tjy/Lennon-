@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //剩余参数：在函数定义时，可以使用 ... 来表示剩余的参数（提倡）
+      //得到的是真数组
+      // function getSum(...arr) {
+      //   console.log(arr);
+      // }
+      // getSum(1, 2, 3);
+
+      //如果明确至少会传两个参数，则可以使用a, b, ... 来表示
+      function getSum(a, b, ...arr) {
+        console.log(arr); //arr得到的是剩余的，即[3, 4, 5, 6, 7, 8, 9]
+      }
+      getSum(1, 2, 3, 4, 5, 6, 7, 8, 9);
+    </script>
+  </body>
+</html>

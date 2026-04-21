@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //递归函数：一个函数在内部可以调用其本身
+      // function fn() {
+      //   fn();
+      // }
+      // fn(); //会无限调用自己，发生“栈溢出”错误
+
+      let i = 1;
+      function fn() {
+        console.log(`这是第${i}次调用`);
+        if (i >= 6) {
+          return;
+        }
+        i++;
+        fn();
+      }
+      fn();
+    </script>
+  </body>
+</html>

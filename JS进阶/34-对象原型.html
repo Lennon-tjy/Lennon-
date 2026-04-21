@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function Lennon() {}
+
+      //实例对象
+      const lennon = new Lennon();
+      console.log(lennon);
+
+      Lennon.prototype.sayHi = function () {
+        console.log("hi");
+      };
+      lennon.sayHi(); //但为什么实例对象能访问这个方法？
+
+      //因为实例对象里有一个属性：__proto__，叫对象原型，指向构造函数的prototype
+      //[[prototype]]和__proto__意义相同
+
+      console.log(lennon.__proto__);
+
+      console.log(lennon.__proto__ === Lennon.prototype); //true，说明实例对象的__proto__指向构造函数的prototype
+
+      //对象原型里也有constructor属性，指向构造函数
+      console.log(lennon.__proto__.constructor === Lennon); //true
+
+      //构造函数  ——> 原型对象prototype
+      //   |            ^
+      //   v            |
+      //       实例对象
+    </script>
+  </body>
+</html>

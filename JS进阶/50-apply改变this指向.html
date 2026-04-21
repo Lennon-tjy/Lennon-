@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //apply()作用：1.调用函数 2.改变this指向
+      //但是apply()必须以数组的形式传递，call()不能传入数组
+      //apply(指定的this指向，其他参数数组)
+      const obj = {
+        age: 18,
+      };
+
+      function fn(x, y) {
+        console.log(this);
+        console.log(x + y);
+      }
+      fn.apply(obj, [1, 2]);
+
+      console.log("-----------------");
+
+      //使用场景
+      //求数组最大值
+
+      //这是以前的写法
+      // const arr = [1, 2, 3];
+      // const max = Math.max(...arr);
+      // console.log(max);
+
+      const arr = [1, 2, 3];
+      const max = Math.max.apply(null, arr); //这里写null，完全是因为语法要求必须填，但实际上根本用不上
+      console.log(max);
+      const min = Math.min.apply(null, arr);
+      console.log(min);
+    </script>
+  </body>
+</html>

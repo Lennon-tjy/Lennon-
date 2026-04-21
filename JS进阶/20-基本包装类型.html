@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const str = "pink";
+      console.log(str.length); //输出4，简单数据类型竟然有属性？
+
+      const num = 12;
+      console.log(num.toFixed(2)); //输出12.00，简单数据类型竟然也有方法？
+
+      //这其实是js底层完成的，把简单数据类型包装为复杂数据类型
+      //上面第一句代码其底层是这样写的：
+      // const str = new String("pink");
+    </script>
+  </body>
+</html>

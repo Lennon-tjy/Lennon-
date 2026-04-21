@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const arr = ["red", "green", "pink"];
+
+      //数组map方法：遍历加工，返回新数组，用于转换数据，有返回值，不要用map遍历数组
+      const newArr = arr.map(function (ele, index) {
+        // console.log(ele); //数组元素
+        // console.log(index); //索引号
+        return ele + "颜色";
+      });
+      console.log(newArr);
+
+      //数组join方法：把数组中的所以元素转换为一个字符串，没有返回值
+      console.log(newArr.join()); //join的括号为空，则默认用逗号隔开
+
+      console.log(newArr.join("")); //join的括号里是空字符串，则不隔开
+
+      console.log(newArr.join("|")); //join的括号里是什么符号，就用什么符号隔开
+    </script>
+  </body>
+</html>

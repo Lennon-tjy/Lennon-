@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <button>发送短信</button>
+
+    <script>
+      //bind()不会调用函数，但能改变this指向
+      //bind()最重要
+
+      const obj = {
+        age: 18,
+      };
+      function fn() {
+        console.log(this);
+      }
+      //不调用函数
+      //能改变this指向
+      //返回值是一个函数，但这个函数里面的this是指向obj
+      const fun = fn.bind(obj);
+      fun();
+
+      //使用场景
+      //需求：有一个按钮，点击后就禁用，2秒后开启
+      const btn = document.querySelector("button");
+
+      btn.addEventListener("click", function () {
+        this.disabled = true;
+        setTimeout(
+          function () {
+            // this.disabled = false; //无法禁用，因为这事个函数，this指向window
+            // btn.disabled = false; //可以禁用
+            //但我们希望使用this，则需要在函数后面加bind
+            this.disabled = false;
+          }.bind(this), //this和btn一样，所以bind()括号里面的btn可以换成this
+          2000,
+        );
+      });
+    </script>
+  </body>
+</html>

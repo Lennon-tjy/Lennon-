@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 变量提升：js执行代码前，会先把var声明的变量，提升到当前作用域最前面（不是好东西）
+      //只提升声明，不提升赋值
+      console.log(num + "个");
+      var num = 10; //结果是undefined个
+      //上面这个等价于
+      // var num;
+      // console.log(num + "个");
+      // num = 10;
+    </script>
+  </body>
+</html>

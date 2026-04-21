@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //debugger就是设置断点，去控制台打开source的时候可以直接跳到写debugger的位置
+      function fn(x = 0, y = 0) {
+        debugger;
+        return x + y;
+      }
+      fn(1, 2);
+      // console.log(fn(1, 2));
+    </script>
+  </body>
+</html>

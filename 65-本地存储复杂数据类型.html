@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const obj = {
+        uname: "lennon",
+        age: 18,
+        gender: "女",
+      };
+      //将对象转化为JSON字符串
+      const str = JSON.stringify(obj);
+
+      //存储
+      localStorage.setItem("objection", str);
+
+      //把JSON字符串转化为对象
+      console.log(JSON.parse(localStorage.getItem("objection")));
+    </script>
+  </body>
+</html>

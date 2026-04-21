@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //构造函数：一种特殊的函数，用于初始化对象
+      //可以通过构造函数来快速创建多个类似的对象
+      //构造函数第一个字母大写，调用时使用new，无需写返回值，自动返回新创建的对象
+
+      //创建构造函数
+      function Pig(uname, age) {
+        this.uname = uname; //前一个uname是对象属性名，后一个uname是形参
+        this.age = age;
+      }
+      // console.log(new Pig("佩奇", "6"));
+      // console.log(new Pig("乔治", "3"));
+
+      const peiqi = new Pig("佩奇", 6);
+      const qiaozhi = new Pig("乔治", 3);
+      console.log(peiqi);
+      console.log(qiaozhi);
+
+      //练习
+      function Goods(name, price, count) {
+        this.name = name;
+        this.price = price;
+        this.count = count;
+      }
+      const mi = new Goods("小米", 3999, 200);
+      const huawei = new Goods("华为", 4999, 100);
+      console.log(mi);
+      console.log(huawei);
+    </script>
+  </body>
+</html>

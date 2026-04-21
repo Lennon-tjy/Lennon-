@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        height: 2000px;
+      }
+
+      .box {
+        display: inline-block;
+        /* width: 200px; */
+        height: 200px;
+        background-color: pink;
+        padding: 10px;
+        margin: 10px;
+        border: 10px solid skyblue;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="box">123123123123123123</div>
+    <script>
+      //resize事件：页面尺寸改变时触发
+      window.addEventListener("resize", function () {
+        console.log(1);
+      });
+
+      //检测盒子尺寸
+      //clientWidth包含padding，但不包含border和margin
+      //offsetWidth包含padding，border，不包含margin
+      const box = document.querySelector(".box");
+      console.log(box.clientWidth);
+      console.log(box.offsetWidth);
+      console.log("----------------");
+      //另一种获取元素大小和尺寸的方法：getBoundingClientRect()
+      //但获取的值是元素相对于视口的位置和尺寸，而不是元素的宽度和高度
+      console.log(box.getBoundingClientRect());
+    </script>
+  </body>
+</html>

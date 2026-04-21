@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="grandfather">
+      <div class="father">
+        <div class="son"></div>
+      </div>
+    </div>
+
+    <ul>
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+      <li>5</li>
+      <li>6</li>
+    </ul>
+
+    <script>
+      //元素节点就是标签
+      const son = document.querySelector(".son");
+      console.log(son);
+      //通过父节点获取父元素
+      console.log(son.parentNode);
+      console.log(son.parentNode.parentNode);
+
+      //
+      const ul = document.querySelector("ul");
+      //通过子节点获取子元素
+      //亲儿子
+      console.log(ul.children); //常用这种
+      console.log(ul.childNodes); //这种包含文本节点和属性节点
+
+      //
+      const li2 = document.querySelector("li:nth-child(2)");
+      //通过兄弟节点获取兄弟元素
+      console.log(li2.previousElementSibling); //上一个兄弟
+      console.log(li2.nextElementSibling); //下一个兄弟
+    </script>
+  </body>
+</html>

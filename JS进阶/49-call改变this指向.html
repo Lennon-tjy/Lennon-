@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //call()作用：1.调用函数 2.改变this指向
+      //call()不常用
+
+      const obj = {
+        uname: "lennon",
+      };
+
+      function fn(x, y) {
+        console.log(this);
+        console.log(x + y);
+      }
+      //1.调用函数
+      //2.改变this指向
+      //call(指定的this指向，其他参数，...)
+      fn.call(obj, 1, 2); //指向了obj对象
+    </script>
+  </body>
+</html>

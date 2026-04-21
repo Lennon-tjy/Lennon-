@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //1.split()
+      const str = "pink,red";
+      //把字符串转化为数组，和join方法相反
+      const arr = str.split(","); //表示从逗号开始分割
+      console.log(arr);
+
+      const str1 = "2026-4-17";
+      const arr1 = str1.split("-");
+      console.log(arr1);
+
+      //2.字符串截取，substring(开始的索引号，结束的索引号)，左闭右开
+      const str2 = "Wherethereisawillthereisaway";
+      console.log(str2.substring(0, 5));
+
+      //3.判断是不是以某字符开头，startsWith(字符串,开始的索引号（默认是0）)
+      const str3 = "Hardwork lead to success";
+      console.log(str3.startsWith("Hard")); //true
+      console.log(str3.startsWith("lead", 9)); //true，空格也要算
+
+      //4.判断是不是以某字符结尾，endsWith(字符串,n（截取前n个字符，再判断结尾）)
+      console.log(str3.endsWith("success")); //true
+      console.log(str3.endsWith("success", 21)); //true
+
+      //5.includes(字符串,开始的索引号（默认是0）)
+      //判断字符串是否包含某字符
+      console.log(str3.includes("lead")); //true
+      console.log(str3.includes("lead", 10)); //false
+    </script>
+  </body>
+</html>

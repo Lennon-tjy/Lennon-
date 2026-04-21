@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        width: 500px;
+        height: 500px;
+        background-color: #ccc;
+        margin: 0 auto;
+        text-align: center;
+        font-size: 100px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="box"></div>
+
+    <script>
+      const box = document.querySelector(".box");
+      let i = 1;
+      function mouseMove() {
+        box.innerHTML = i++;
+      }
+      // box.addEventListener("mousemove", mouseMove);
+
+      //节流函数：核心也是利用setTimeout实现
+      function throttle(fn, time) {
+        let timer;
+        return function () {
+          //这里先判断没有是因为节流是在冷却时间内，不理你！冷却完才能再执行
+          //没有定时器时，才开启
+          if (!timer) {
+            timer = setTimeout(function () {
+              fn();
+              //清空定时器
+              timer = null; //用这个而不用clearTimeout是因为在定时器运作时是无法删除定时器的
+            }, time);
+          }
+        };
+      }
+      box.addEventListener("mousemove", throttle(mouseMove, 3000));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //throw抛出异常信息，程序会终止执行
+      //throw后面跟的是错误提示信息
+      //Error对象配合throw使用，能设置更详细的错误信息
+      function fn(x, y) {
+        if (!x || !y) {
+          // throw "没有参数传递进来";
+          throw new Error("没有参数传递进来");
+        }
+        return x + y;
+      }
+      console.log(fn());
+    </script>
+  </body>
+</html>

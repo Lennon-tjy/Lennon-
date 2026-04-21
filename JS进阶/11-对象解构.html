@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //对象解构：把对象的属性和方法批量赋值给一系列变量的简洁语法
+      const obj = {
+        uname: "lennon",
+        age: 18,
+      };
+      //1.对象解构
+      //变量名必须和属性名一样
+      // const { uname, age } = obj;
+      // console.log(uname); //lennon
+      // console.log(age); //18
+
+      //对象解构的变量名可以更改，防止和全局变量名冲突
+      const { uname: username, age: userage } = obj;
+      console.log(username); //lennon
+      console.log(userage); //18
+
+      //2.数组对象解构
+      const pig = [
+        {
+          uname: "佩奇",
+          age: 6,
+        },
+      ];
+      //解构
+      const [{ uname, age }] = pig;
+      console.log(uname); //佩奇
+      console.log(age); //6
+
+      //练习
+      const goods = [
+        {
+          goodsName: "小米",
+          price: 5999,
+        },
+      ];
+      //解构
+      const [{ goodsName, price }] = goods;
+      console.log(goodsName);
+      console.log(price);
+
+      //多级对象解构
+      const pinkpig = {
+        uname1: "佩奇",
+        age1: 6,
+        family: {
+          father: "猪爸爸",
+          mother: "猪妈妈",
+          brother: "乔治",
+        },
+      };
+      //解构
+      const {
+        uname1,
+        age1,
+        family: { father, mother, brother },
+      } = pinkpig;
+
+      console.log(uname1);
+      console.log(father);
+    </script>
+  </body>
+</html>

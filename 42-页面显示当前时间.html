@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        width: 300px;
+        height: 40px;
+        border: 1px solid #000;
+        text-align: center;
+        line-height: 40px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="box"></div>
+
+    <script>
+      const box = document.querySelector(".box");
+
+      function getDate() {
+        const date = new Date();
+
+        let hours = date.getHours();
+        if (hours < 10) {
+          hours = "0" + hours;
+        } else {
+          hours = hours;
+        }
+
+        let minutes = date.getMinutes();
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+
+        let seconds = date.getSeconds();
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        return `今天是${date.getFullYear()}年${date.getMonth() + 1}月${date.getDate()}日 ${hours}:${minutes}:${seconds}`;
+      }
+
+      //外面也留一个，防止页面刷新时，时间间隔一秒才出来
+      box.innerHTML = getDate();
+      setInterval(function () {
+        box.innerHTML = getDate();
+      }, 1000);
+    </script>
+  </body>
+</html>

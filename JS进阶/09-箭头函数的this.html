@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // console.log(this); //window
+
+      // //1.普通函数
+      // function fn() {
+      //   console.log(this); //window，因为是window调用函数
+      // }
+      // fn();
+
+      // //对象方法里的this
+      // const obj = {
+      //   name: "lennon",
+      //   sayHi: function () {
+      //     console.log(this); //obj
+      //   },
+      // };
+      // obj.sayHi();
+
+      //2.箭头函数
+      const fn = () => {
+        console.log(this); //window，箭头函数不会创建自己的this，只会指向上一层作用域的this
+      };
+      fn();
+
+      //对象方法箭头函数 this
+      //1.
+      const obj = {
+        uname: "lennon",
+        sayHi: () => {
+          console.log(this); //是window，而不是obj
+        },
+      };
+      obj.sayHi();
+
+      //2.
+      const obj1 = {
+        uname: "小攸",
+        sayHi: function () {
+          let i = 100;
+          const count = () => {
+            console.log(this); //obj1
+          };
+          count();
+        },
+      };
+      obj1.sayHi();
+    </script>
+  </body>
+</html>

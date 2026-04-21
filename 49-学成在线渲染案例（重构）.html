@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: #f3f5f7;
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      ul {
+        /* display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap; */
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(228px, 1fr));
+      }
+
+      ul li {
+        width: 228px;
+        height: 290px;
+        background-color: #fff;
+        list-style: none;
+        transition: all 0.4s;
+        margin-bottom: 15px;
+      }
+
+      li:hover {
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        transform: translateY(-5px);
+      }
+
+      .banxin {
+        width: 1200px;
+        margin: 0 auto;
+      }
+
+      .box-head {
+        height: 50px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .box-head .more a {
+        font-size: 14px;
+        color: #a5a5a5;
+        margin-right: 30px;
+      }
+
+      ul li h3 {
+        padding: 20px;
+        font-size: 15px;
+        color: #050505;
+        font-weight: 400;
+      }
+
+      .info {
+        padding: 0 20px;
+        font-size: 14px;
+        color: #999999;
+        font-weight: 400;
+      }
+
+      .info .level-high {
+        color: #ff7c2d;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="box banxin">
+      <div class="box-head">
+        <h3>精品推荐</h3>
+        <span class="more">
+          <a href="#">查看全部</a>
+        </span>
+      </div>
+
+      <div class="box-body">
+        <ul>
+          <!-- <li>
+            <a href="#">
+              <img src="https://olin-yi.github.io/img/class1.png" alt="" />
+              <h3>Think PHP 5.0博客系统实战项目演练</h3>
+              <div class="info">
+                <span class="level-high">高级</span> ·
+                <span> 1125人在线学习 </span>
+              </div>
+            </a>
+          </li> -->
+        </ul>
+      </div>
+    </div>
+
+    <script>
+      //重构
+      let data = [
+        {
+          src: "https://olin-yi.github.io/img/class1.png",
+          title: "Think PHP 5.0博客系统实战项目演练",
+          num: "1125",
+        },
+        {
+          src: "https://olin-yi.github.io/img/class2.png",
+          title: "Android 网络动态图片加载实战",
+          num: "1357",
+        },
+        {
+          src: "https://olin-yi.github.io/img/class3.png",
+          title: "Angular2 大前端商城实战项目演练",
+          num: "22250",
+        },
+        {
+          src: "https://olin-yi.github.io/img/class4.png",
+          title: "'Android APP'实战项目演练",
+          num: "389",
+        },
+        {
+          src: "https://olin-yi.github.io/img/class2.png",
+          title: "'UGUI'源码深度分析案例",
+          num: "124",
+        },
+        {
+          src: "https://olin-yi.github.io/img/class3.png",
+          title: "Kami2首页界面切换效果实战演练",
+          num: "432",
+        },
+        {
+          src: "https://olin-yi.github.io/img/class4.png",
+          title: "'UGUI'从入门到精通实战案例",
+          num: "888",
+        },
+        {
+          src: "https://olin-yi.github.io/img/class1.png",
+          title: "'Cocos'深度学习你不会错过的实战",
+          num: "590",
+        },
+      ];
+
+      const ul = document.querySelector(".box-body ul");
+      //根据数据个数创建对应li的数量
+      for (let i = 0; i < data.length; i++) {
+        //创建li
+        const li = document.createElement("li");
+        //追加
+        ul.appendChild(li);
+        //把内容给li
+        li.innerHTML = `
+            <a href="#">
+              <img src=${data[i].src} alt="" />
+              <h3>${data[i].title}</h3>
+
+              <div class="info">
+                <span class="level-high">高级</span> ·
+                <span> ${data[i].num}人在线学习 </span>
+              </div>
+            </a>
+            `;
+      }
+    </script>
+  </body>
+</html>

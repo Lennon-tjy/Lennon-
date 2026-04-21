@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        width: 300px;
+        height: 40px;
+        border: 1px solid #000;
+        text-align: center;
+        line-height: 40px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="box"></div>
+
+    <script>
+      const box = document.querySelector(".box");
+
+      const date = new Date();
+      box.innerHTML = date.toLocaleString(); //显示日期和时间，外面也留一个，防止页面刷新时空白
+
+      setInterval(function () {
+        const date = new Date(); //每次都重新创建一个日期对象，确保时间是实时的
+        box.innerHTML = date.toLocaleString();
+      }, 1000);
+      //box.innerHTML = date.toLocaleDateString(); //显示日期
+      // box.innerHTML = date.toLocaleTimeString(); //显示时间
+    </script>
+  </body>
+</html>

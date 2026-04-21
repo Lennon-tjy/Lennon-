@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //延时函数
+      setTimeout(function () {
+        console.log("时间到了");
+      }, 2000);
+
+      //清除延时函数
+      //   let timer = setTimeout(function () {
+      //     console.log("时间到了");
+      //   }, 2000);
+      //   clearTimeout(timer);
+
+      //两道小小的面试题
+      console.log(111);
+      setTimeout(function () {
+        console.log(222);
+      }, 2000);
+      console.log(333); //结果是111333222
+
+      console.log(555);
+      setTimeout(function () {
+        console.log(666);
+      }, 0);
+      console.log(777); //结果是555777666
+    </script>
+  </body>
+</html>

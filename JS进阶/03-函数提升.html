@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 函数提升：js执行代码前，会先把function声明的函数，提升到当前作用域最前面
+      // 只提升声明，不提升调用
+      fn(); //也可以正常输出
+      function fn() {
+        console.log(111);
+      }
+    </script>
+  </body>
+</html>

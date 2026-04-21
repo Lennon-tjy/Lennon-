@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function getSum() {
+        //arguments 动态参数 只存在于函数里面
+        //arguments其实是个伪数组，有下标，但不能使用数组的方法（push、pop等）
+        let sum = 0;
+        for (let i = 0; i < arguments.length; i++) {
+          sum = sum + arguments[i];
+        }
+        console.log(sum);
+      }
+      getSum(1, 2, 3);
+      getSum(1, 2, 3, 4, 5);
+      //传入多少就计算多少
+    </script>
+  </body>
+</html>

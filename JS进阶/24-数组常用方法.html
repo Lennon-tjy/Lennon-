@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //find()
+      // const arr = ["red", "green", "blue", "pink"];
+      // //查找
+      // const result = arr.find(function (item) {
+      //   return item === "pink";
+      // });
+      // console.log(result);
+
+      //find()
+      const arr = [
+        {
+          name: "小米",
+          price: 3999,
+        },
+        {
+          name: "华为",
+          price: 4999,
+        },
+      ];
+      const result = arr.find((item) => item.name === "小米");
+      console.log(result); //{name:'小米',price:3999}
+
+      //every()
+      const arr1 = [10, 20, 30, 40];
+      const res = arr1.every((item) => item >= 10);
+      console.log(res); //true
+
+      //some()
+      const arr2 = [10, 20, 30, 40];
+      const res2 = arr2.some((item) => item >= 10);
+      console.log(res2); //true，只要有一个符合都是true
+    </script>
+  </body>
+</html>

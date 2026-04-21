@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        position: relative;
+        width: 400px;
+        height: 300px;
+        background-color: pink;
+        margin: 100px auto;
+      }
+
+      button {
+        position: absolute;
+        top: 0;
+        right: 0;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <button>x</button>
+    </div>
+
+    <div class="box">
+      <button>x</button>
+    </div>
+
+    <div class="box">
+      <button>x</button>
+    </div>
+
+    <script>
+      // const button = document.querySelector("button");
+      // button.addEventListener("click", function () {
+      //   this.parentNode.style.display = "none";
+      // });
+
+      //但是如果有三个盒子，点击第一个盒子的按钮，只能关闭第一个盒子，因为获取的只会是第一个button
+      const buttons = document.querySelectorAll("button");
+      for (let i = 0; i < buttons.length; i++) {
+        buttons[i].addEventListener("click", function () {
+          this.parentNode.style.display = "none";
+        });
+      }
+    </script>
+  </body>
+</html>

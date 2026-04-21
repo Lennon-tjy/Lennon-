@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      .box {
+        width: 240px;
+        height: 305px;
+        background-color: brown;
+        color: #fff;
+        margin: 100px auto;
+        text-align: center;
+      }
+
+      .date {
+        font-size: 16px;
+        padding: 25px 0;
+        font-weight: 500;
+      }
+
+      .title {
+        font-size: 25px;
+        font-weight: bold;
+      }
+
+      .count {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        padding: 50px 0;
+      }
+
+      .count span {
+        display: inline-block;
+        width: 35px;
+        height: 35px;
+        line-height: 33px;
+        font-size: 20px;
+        background-color: #000;
+      }
+
+      .count p {
+        font-size: 20px;
+      }
+
+      .end {
+        font-size: 18px;
+        font-weight: 500;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="box">
+      <p class="date">今天是2026年4月10日</p>
+      <p class="title">距离计时结束还有:</p>
+
+      <div class="count">
+        <span id="hours">00</span>
+        <p>:</p>
+        <span id="minutes">00</span>
+        <p>:</p>
+        <span id="seconds">00</span>
+      </div>
+
+      <p class="end">20:30:00结束</p>
+    </div>
+
+    <script>
+      //实时更新日期
+      const date = document.querySelector(".date");
+      //获取当前日期
+      const now = new Date();
+
+      date.innerHTML = `今天是${now.getFullYear()}年${now.getMonth() + 1}月${now.getDate()}日`;
+
+      //函数封装，计算倒计时时间
+      function getCountTime() {
+        //获得现在的时间戳
+        const now = +new Date();
+        //获得结束时间的时间戳
+        const end = +new Date("2026-04-10 20:30:00");
+        //计算时间差
+        const difference = (end - now) / 1000; //得到秒数
+        // console.log(difference);
+
+        //时间转换
+        // h = parseInt((difference / 60 / 60) % 24);
+        // m = parseInt((difference / 60) % 60);
+        // s = parseInt(difference % 60);
+
+        let h = parseInt((difference / 60 / 60) % 24);
+        h = h < 10 ? "0" + h : h;
+        let m = parseInt((difference / 60) % 60);
+        m = m < 10 ? "0" + m : m;
+        let s = parseInt(difference % 60);
+        s = s < 10 ? "0" + s : s;
+        // console.log(h, m, s);
+
+        //获取盒子
+        const hours = document.querySelector("#hours");
+        const minutes = document.querySelector("#minutes");
+        const seconds = document.querySelector("#seconds");
+        //赋值
+        hours.innerHTML = h;
+        minutes.innerHTML = m;
+        seconds.innerHTML = s;
+      }
+
+      //先调用一次，防止页面刷新时是原先的时间
+      getCountTime();
+
+      //开启定时器
+      setInterval(getCountTime, 1000);
+
+      //随机颜色函数
+      function getRandomColor(flag = true) {
+        if (true) {
+          let str = "#";
+          let arr = [
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "a",
+            "b",
+            "c",
+            "d",
+            "e",
+            "f",
+          ];
+          for (let i = 1; i <= 6; i++) {
+            str = str + arr[Math.floor(Math.random() * arr.length)];
+          }
+          return str;
+        } else {
+          let r = Math.floor(Math.random() * 256);
+          let g = Math.floor(Math.random() * 256);
+          let b = Math.floor(Math.random() * 256);
+          return `rgb(${r},${g},${b})`;
+        }
+      }
+
+      //获得box
+      const box = document.querySelector(".box");
+      //调用函数
+      box.style.backgroundColor = getRandomColor();
+    </script>
+  </body>
+</html>

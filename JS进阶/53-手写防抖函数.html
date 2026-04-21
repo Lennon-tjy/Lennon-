@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .box {
+      width: 500px;
+      height: 500px;
+      background-color: #ccc;
+      margin: 0 auto;
+      font-size: 100px;
+      text-align: center;
+    }
+  </style>
+  <body>
+    <div class="box"></div>
+
+    <script>
+      const box = document.querySelector(".box");
+      let i = 1;
+      function mouseMove() {
+        box.innerHTML = i++;
+      }
+
+      //防抖函数
+      //防抖的核心是利用setTimeout来实现
+      //1.先声明定时器变量
+      //2.每次鼠标移动时都要先判断是否有定时器，如果有，先清除以前的定时器
+      //3.如果没有，就开启定时器，存入到定时器变量里面
+      //4.定时器里面写函数调用
+      function debounce(fn, time) {
+        let timer;
+        //return一个函数是为了防止下面调用debounce函数时，执行一次就结束
+        return function () {
+          //这里先判断有是因为防抖是你一直动，我就一直清零等待
+          //只要有定时器，就清掉
+          if (timer) {
+            clearTimeout(timer);
+          }
+          timer = setTimeout(function () {
+            fn();
+          }, time);
+        };
+      }
+      //调用防抖函数
+      box.addEventListener("mousemove", debounce(mouseMove, 500));
+    </script>
+  </body>
+</html>

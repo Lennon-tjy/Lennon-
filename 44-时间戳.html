@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //时间戳是指1970年1月1日0时0分0秒到当前时间的总毫秒数
+      //未来的时间戳 - 现在的时间戳 = 剩余时间的毫秒数
+
+      //获得时间戳
+      //方法1.getTime()
+      // const date = new Date();
+      // console.log(date.getTime());
+
+      //方法2.+new Date()
+      //不需要实例化
+      //建议用这种方法
+      console.log(+new Date());
+
+      //方法3.Date.now()
+      //不需要实例化
+      //这种只能得到当前时间戳，而前面两种可以得到指定时间的时间戳
+      console.log(Date.now());
+
+      console.log(+new Date("2026-01-01 00:00:00"));
+
+      console.log("-----------------");
+
+      //根据Day() 0~6 得到星期几
+      //数组
+      const date = new Date();
+      console.log(date.getDay());
+      const week = [
+        "星期日",
+        "星期一",
+        "星期二",
+        "星期三",
+        "星期四",
+        "星期五",
+        "星期六",
+      ];
+      console.log(week[date.getDay()]);
+    </script>
+  </body>
+</html>

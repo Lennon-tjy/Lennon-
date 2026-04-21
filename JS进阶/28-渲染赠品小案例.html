@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div></div>
+
+    <script>
+      // const gift = "50g茶叶,清洗球";
+      // //字符串转换为数组;
+      // // console.log(gift.split(","));
+      // //根据数组元素个数，生成对应个数的span
+      // const span = gift
+      //   .split(",")
+      //   .map(function (item) {
+      //     return `<span>【赠品】${item}</span> <br>`;
+      //   })
+      //   .join(""); //再将数组转换为字符串
+      // console.log(span);
+
+      // document.querySelector("div").innerHTML = span;
+
+      //箭头函数写法
+      const gift = "50g茶叶,清洗球";
+
+      const span = gift
+        .split(",")
+        .map((item) => `<span>【赠品】${item}</span> <br>`)
+        .join("");
+
+      document.querySelector("div").innerHTML = span;
+    </script>
+  </body>
+</html>

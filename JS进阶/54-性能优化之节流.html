@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        width: 500px;
+        height: 500px;
+        background-color: #ccc;
+        margin: 0 auto;
+        text-align: center;
+        font-size: 100px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="box"></div>
+
+    <script src="./lodash.min.js"></script>
+    <script>
+      //节流：单位时间内，频繁触发事件，只执行一次
+
+      //需求：鼠标在盒子上移动时，不管移动多少次，每隔500ms才+1
+      const box = document.querySelector(".box");
+      let i = 1;
+      function mouseMove() {
+        box.innerHTML = i++;
+      }
+      box.addEventListener("mousemove", _.throttle(mouseMove, 3000));
+    </script>
+  </body>
+</html>

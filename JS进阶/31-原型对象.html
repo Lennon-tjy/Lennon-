@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //构造函数
+      function Lan(uname, age) {
+        this.uname = uname;
+        this.age = age;
+        // this.sayHi = function () {
+        //   console.log("hi");
+        // };
+      }
+      //属性和方法的this都指向实例对象
+
+      const lennon = new Lan("Lennon", 18);
+      const lisa = new Lan("Lisa", 17);
+      // lennon.sayHi();
+      // lisa.sayHi();
+      // console.log(lennon.sayHi === lisa.sayHi); //false,因为每new一次，就会创建一个新的sayHi函数，两个函数占据了不同内存，所以不相等，但这样就会存在浪费内存的问题
+
+      //原型对象可以解决浪费内存的问题
+      //原型对象：一个专门存放共享属性和方法的公共对象
+      //每个构造函数都有prototype属性，这个属性的值是一个对象，叫原型对象，简称原型
+      //原型对象的三大特性：继承性、封装性、多态性
+      //公共的方法写到原型对象上
+      Lan.prototype.sayHi = function () {
+        console.log("hi");
+      };
+      lennon.sayHi();
+      lisa.sayHi();
+      console.log(lennon.sayHi === lisa.sayHi); //true，因为原型对象上的方法，所有实例对象都可以访问到
+    </script>
+  </body>
+</html>

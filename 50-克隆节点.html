@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <ul>
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+    </ul>
+
+    <script>
+      const ul = document.querySelector("ul");
+      //克隆节点  .cloneNode(true)，true表示儿子孙子都克隆，false表示只克隆儿子标签，默认是false
+      let li1 = ul.children[0].cloneNode(true);
+      // let li1 = ul.children[0].cloneNode(false); //如果是false，只会克隆li标签，不会克隆1这个文本节点
+      //追加
+      ul.appendChild(li1);
+    </script>
+  </body>
+</html>

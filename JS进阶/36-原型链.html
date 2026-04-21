@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //高频面试题
+
+      function Person() {}
+
+      const lennon = new Person();
+
+      //原型链：一种查找规则，对象通过__proto__ 一级一级往上找原型，形成的一条链式结构，就叫原型链
+      console.log(lennon.__proto__); //指向Person.prototype对象
+      console.log(Person.prototype.__proto__); //指向Object.prototype对象
+      console.log(Object.prototype.__proto__); //指向null
+
+      console.log(Object.prototype);
+      console.log(Person.prototype.__proto__ === Object.prototype); //true
+
+      console.log("-----------------");
+
+      //instanceof：用来检测某个对象，是不是由某个构造函数创建出来的（是否出现在某个实例对象的原型链上）
+      console.log(lennon instanceof Person); //true
+      console.log(lennon instanceof Object); //true
+      console.log([1, 2, 3] instanceof Array); //true
+      console.log(Array instanceof Object); //true
+    </script>
+  </body>
+</html>

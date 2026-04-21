@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //实例成员：通过构造函数创建的对象称为实例对象，实例对象中的属性和方法称为实例成员（实例属性和实例方法）
+      function Pig(name) {
+        this.name = name;
+      }
+      //peiqi,qiaozhi都是实例对象
+      const peiqi = new Pig("佩奇");
+      const qiaozhi = new Pig("乔治");
+
+      //静态成员：构造函数上的属性和方法
+      function Pig1() {
+        this.uname = uname;
+      }
+      Pig1.eyes = 2; //静态属性
+
+      //静态方法
+      Pig1.sayHi = function () {
+        console.log(this);
+      };
+      Pig1.sayHi();
+
+      console.log(Pig1.eyes);
+    </script>
+  </body>
+</html>

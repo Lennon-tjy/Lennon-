@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        width: 500px;
+        height: 500px;
+        background-color: #ccc;
+        margin: 0 auto;
+        text-align: center;
+        font-size: 100px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="box"></div>
+
+    <script src="./lodash.min.js"></script>
+
+    <script>
+      //防抖（debounce）：单位时间内，频繁触发事件，只执行最后一次
+      //应用场景：1.搜索框输入，用户最后一次输入完再发生请求  2.手机号、邮箱输入验证
+
+      //需求：鼠标在盒子上移动，里面的文字会+1变化
+      const box = document.querySelector(".box");
+      let i = 1;
+      function mouseMove() {
+        box.innerHTML = i++;
+      } //这个函数，鼠标移动一像素，文字就+1变化，如果里面存在的是大量消耗性能的代码，比如dom操作、数据处理，可能造成卡顿
+      // box.addEventListener("mousemove", mouseMove);
+
+      //优化：防抖
+      //鼠标停止500ms后再+1
+      //利用lodash库实现
+      //_.debounce(函数，时间)
+      box.addEventListener("mousemove", _.debounce(mouseMove, 500));
+    </script>
+  </body>
+</html>

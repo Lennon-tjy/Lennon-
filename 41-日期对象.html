@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //new是创建对象，叫实例化，后面加类型
+      //括号为空得到的是当前时间
+      const date = new Date();
+      console.log(date);
+
+      //指定时间
+      const date1 = new Date("2026-04-17 23:00:00");
+      console.log(date1);
+
+      //日期对象方法
+      const date2 = new Date();
+      console.log(date2.getFullYear());
+      console.log(date2.getMonth()); //得到的3，因为月份从0开始，所以要+1
+      console.log(date2.getMonth() + 1);
+      console.log(date2.getDate());
+      console.log(date2.getDay()); //得到的是星期几，0是星期日
+      console.log(date2.getHours());
+      console.log(date2.getMinutes());
+      console.log(date2.getSeconds());
+    </script>
+  </body>
+</html>

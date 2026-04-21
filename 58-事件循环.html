@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //事件循环：主线程不断地重复获得任务、执行任务（先执行同步任务，再执行异步任务），这种机制被称为事件循环（Event Loop）
+      console.log(111); //同步任务
+      console.log(222); //同步任务
+      setTimeout(function () {
+        //异步任务
+        console.log(333);
+      }, 0);
+      console.log(444); //同步任务
+    </script>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // 在pc端不调整，只在移动端跳转
+      //检测userAgent（浏览器信息）
+      !(function () {
+        const userAgent = navigator.userAgent;
+        //检验是否为Android或iPhone
+        const android = userAgent.match(/(Android);?[\s\/]+([\d.]+?)/);
+        const iphone = userAgent.match(/(iPhone\sOS)\s([\d_]+)/);
+        //如果是Android或iPhone，跳转至移动站点
+        if (android || iphone) {
+          location.href = "https://www.baidu.com";
+        }
+      })();
+
+      //!function(){}() === (function(){})()
+
+      //因为这段代码要一进页面就立刻执行，所以必须写在<head>里，越早运行越好
+    </script>
+  </head>
+
+  <body>
+    这是pc端
+  </body>
+</html>

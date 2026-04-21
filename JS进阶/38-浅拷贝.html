@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const obj = {
+        uname: "lennon",
+        age: 18,
+        family: {
+          baby: "pink",
+        },
+      };
+
+      // const o = obj;
+      // o.age = 20;
+      // console.log(o);
+      // console.log(obj); //这个的age也变成20了
+      //这种直接赋值会相互影响
+
+      //我们希望改变o，但不改变obj
+      //这就用到了浅拷贝
+      //...obj的作用就是把obj里的所有属性，展开到新对象里，这样得到的o是全新的对象
+      //1.
+      const o = { ...obj };
+      console.log(o);
+      o.age = 20;
+      console.log(o);
+      console.log(obj); //这个的age没有改变
+
+      console.log("-----------------");
+
+      //2.
+      const oo = {};
+      Object.assign(oo, obj);
+      console.log(oo);
+      oo.age = 20;
+      console.log(oo);
+      console.log(obj); //这个的age没有改变
+
+      console.log("-----------------");
+
+      oo.family.baby = "red";
+      console.log(oo);
+      console.log(obj); //这个的family.baby也改变
+      //这是浅拷贝的问题，浅拷贝复制的是地址，obj.family和oo.family指向同一个对象
+    </script>
+  </body>
+</html>

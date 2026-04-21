@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div></div>
+
+    <script>
+      //用递归函数和setTimeout模拟setInterval效果
+      function getTime() {
+        document.querySelector("div").innerHTML = new Date().toLocaleString();
+        setTimeout(getTime, 1000);
+      }
+      getTime();
+      //从上往下，但上面的先不执行，先调用一次函数，打印一次当前时间，过了1s，再调用一次函数，打印一次当前时间......
+    </script>
+  </body>
+</html>

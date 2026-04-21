@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // const fn = function () {
+      //   console.log(111);
+      // };
+
+      //箭头函数
+      // const fn = () => {
+      //   console.log(123);
+      // };
+      // fn();
+
+      const fn = (x) => {
+        console.log(x);
+      };
+      fn(100);
+
+      //1.只有一个形参的时候，这个小括号可以省略
+      // const fn = x => {
+      //   console.log(x);
+      // };
+      // fn(100);
+
+      //2.只有一行代码的时候，大括号可以省略
+      // const fn = x => console.log(x);
+      // fn(100);
+
+      //3.
+      // const fn = x => {
+      //   return x + x;
+      // };
+      // console.log(fn(100))
+      //像上面这样，只有一行代码，可以省略return
+      // const fn = x => x + x;
+      // console.log(fn(100))
+
+      //4.箭头函数可以返回一个对象，对象自带的大括号和函数的大括号冲突了，所以用小括号
+      const fn1 = (uname) => ({
+        uname: uname,
+      });
+      console.log(fn1("lennon"));
+    </script>
+  </body>
+</html>

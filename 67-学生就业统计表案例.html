@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>学生就业统计表</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: #f0f7ff;
+      }
+
+      a {
+        text-decoration: none;
+        color: #721c24;
+      }
+
+      h1 {
+        text-align: center;
+        color: #333;
+        margin: 20px 0;
+      }
+
+      .title {
+        width: 933px;
+        height: 50px;
+        line-height: 50px;
+        padding-right: 15px;
+        border: 1px solid #ebebeb;
+        margin: 10px auto;
+        background-color: #f2f2f2;
+        text-align: right;
+      }
+
+      .title span {
+        display: inline-block;
+        vertical-align: middle;
+        height: 20px;
+        margin: -3px 5px 0;
+        text-align: center;
+        line-height: 20px;
+        color: #f26934;
+        font-weight: 700;
+      }
+
+      table {
+        margin: 0 auto;
+        width: 950px;
+        border-collapse: collapse;
+        color: #3c3637;
+        text-align: center;
+      }
+
+      th {
+        padding: 10px;
+        background: #f2f2f2;
+        font-size: 18px;
+      }
+
+      td,
+      th {
+        border: 1px solid #ebebeb;
+        padding: 15px;
+      }
+
+      td {
+        color: #666;
+        font-size: 16px;
+      }
+
+      tbody tr {
+        background: #fff;
+        cursor: pointer;
+      }
+
+      tbody tr:hover {
+        background: #fbfafa;
+      }
+
+      tbody a {
+        display: inline-block;
+        width: 80px;
+        height: 30px;
+        text-align: center;
+        line-height: 30px;
+        color: #fff;
+        background-color: #f26934;
+        border-radius: 5px;
+      }
+
+      .info {
+        width: 900px;
+        margin: 50px auto;
+        text-align: center;
+      }
+
+      .info input,
+      .info select {
+        width: 100px;
+        height: 30px;
+        outline: none;
+        border: 1px solid #ebebeb;
+        border-radius: 5px;
+        padding-left: 5px;
+        margin-right: 10px;
+      }
+
+      .info button {
+        width: 70px;
+        height: 30px;
+        background-color: #5dbfd8;
+        outline: none;
+        border: 0;
+        color: #fff;
+        cursor: pointer;
+        font-size: 14px;
+        border-radius: 5px;
+      }
+
+      .info button:hover {
+        background-color: #52abc1;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>学生就业统计表</h1>
+    <form class="info" autocomplete="off">
+      <input type="text" class="uname" name="uname" placeholder="姓名" />
+      <input type="text" class="age" name="age" placeholder="年龄" />
+      <input type="text" class="salary" name="salary" placeholder="薪资" />
+      <select name="gender" class="gender">
+        <option value="男">男</option>
+        <option value="女">女</option>
+      </select>
+      <select name="city" class="city">
+        <option value="北京">北京</option>
+        <option value="上海">上海</option>
+        <option value="广州">广州</option>
+        <option value="深圳">深圳</option>
+      </select>
+      <button class="add">添加</button>
+    </form>
+
+    <div class="title">共有数据<span>0</span>条</div>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>姓名</th>
+          <th>年龄</th>
+          <th>性别</th>
+          <th>薪资</th>
+          <th>就业城市</th>
+          <th>录入时间</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <!-- <tr>
+          <td>1</td>
+          <td>lennon</td>
+          <td>18</td>
+          <td>女</td>
+          <td>12000</td>
+          <td>北京</td>
+          <td>2026/4/12 08:08:08</td>
+          <td>
+            <a href="javascript:"> 删除 </a>
+          </td>
+        </tr> -->
+      </tbody>
+    </table>
+    <script>
+      // 参考数据
+      // const initData = [
+      //   {
+      //     stuId: 1,
+      //     uname: "lennon",
+      //     age: 18,
+      //     salary: "12000",
+      //     gender: "女",
+      //     city: "北京",
+      //     time: "2026/4/12 08:08:08",
+      //   },
+      // ];
+      //存储（只是用于测试）
+      // localStorage.setItem("data", JSON.stringify(initData));
+
+      //一.渲染模块
+
+      //如果本地有数据则转换为对象然后存储到变量
+      //如果没有数据，则用空数组代替
+      const arr = JSON.parse(localStorage.getItem("data")) || [];
+      console.log(arr);
+
+      const tbody = document.querySelector("tbody");
+
+      //利用map和join方法来渲染页面
+      function render() {
+        //用map遍历加工，返回tr的数组
+        const trArr = arr.map(function (ele, index) {
+          return `
+        <tr>
+          <td>${ele.stuId}</td>
+          <td>${ele.uname}</td>
+          <td>${ele.age}</td>
+          <td>${ele.gender}</td>
+          <td>${ele.salary}</td>
+          <td>${ele.city}</td>
+          <td>${ele.time}</td>
+          <td>
+            <a href="javascript:" data-id="${index}"> 删除 </a>
+          </td>
+        </tr>
+          `;
+        });
+        console.log(trArr);
+
+        //把数组转化为字符串（join），并追加给tbody
+        tbody.innerHTML = trArr.join("");
+        console.log(tbody.innerHTML);
+
+        //显示有几条数据
+        document.querySelector(".title span").innerHTML = arr.length;
+      }
+      // render();
+
+      //二.添加模块
+      const info = document.querySelector(".info");
+      const uname = document.querySelector(".uname");
+      const age = document.querySelector(".age");
+      const salary = document.querySelector(".salary");
+      const gender = document.querySelector(".gender");
+      const city = document.querySelector(".city");
+
+      info.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        if (uname.value === "" || age.value === "" || salary.value === "") {
+          return alert("输入内容不能为空");
+        }
+
+        //给arr数组追加对象
+        arr.push({
+          //处理stuId，数组最后一条数据的stuId+1
+          //还要加判断，如果数组为空，那就给stuId赋值为1
+          stuId: arr.length > 0 ? arr[arr.length - 1].stuId + 1 : 1,
+          uname: uname.value,
+          age: age.value,
+          salary: salary.value,
+          gender: gender.value,
+          city: city.value,
+          time: new Date().toLocaleString(),
+        });
+
+        //渲染页面
+        render();
+
+        //清空表单
+        info.reset();
+
+        //把数组重新存入本地存储里
+        localStorage.setItem("data", JSON.stringify(arr));
+      });
+
+      //三.删除模块
+      //用事件委托
+      tbody.addEventListener("click", function (e) {
+        if (e.target.tagName === "A") {
+          //得到当前点击链接的索引号
+          const id = e.target.dataset.id;
+          //确认是否真的删除
+          //confirm会返回两个值，true和false，点击确定就返回true，点击取消就返回false，true就执行下面代码
+          if (confirm("您确定要删除这条数据吗")) {
+            //删除
+            arr.splice(id, 1);
+
+            //重新渲染页面
+            render();
+
+            //新数组重新存储到本地存储中
+            localStorage.setItem("data", JSON.stringify(arr));
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

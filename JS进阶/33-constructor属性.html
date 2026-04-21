@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //constructor是原型对象的一个属性
+      //constructor属性：指回构造函数本身
+      function Lennon() {}
+      new Lennon();
+      console.log(Lennon.prototype); //constructor属性在原型对象里
+      console.log(Lennon.prototype.constructor); //输出的是Lennon函数
+      console.log(Lennon.prototype.constructor === Lennon); //true
+
+      //构造函数.prototype ——> 原型对象
+      //原型对象.constructor ——> 构造函数
+
+      console.log("----------------------");
+
+      function Haha() {}
+
+      console.log(Haha.prototype);
+
+      Haha.prototype = {
+        //重新指回构造函数本身
+        constructor: Haha,
+
+        sayHi: function () {
+          console.log("hi");
+        },
+        sing: function () {
+          console.log("singing");
+        },
+        dance: function () {
+          console.log("dancing");
+        },
+      };
+
+      console.log(Haha.prototype);
+    </script>
+  </body>
+</html>

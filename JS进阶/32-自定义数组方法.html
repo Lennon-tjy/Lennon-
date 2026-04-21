@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //求最大值
+      const arr = [1, 2, 3];
+      Array.prototype.max = function () {
+        return Math.max(...this); //this指向arr
+      };
+      console.log(arr.max());
+
+      //求和
+      Array.prototype.sum = function () {
+        return this.reduce((prev, item) => prev + item, 0);
+      };
+      console.log(arr.sum());
+    </script>
+  </body>
+</html>

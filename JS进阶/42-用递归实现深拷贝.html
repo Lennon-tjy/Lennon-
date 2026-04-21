@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const obj = {
+        uname: "lennon",
+        age: 18,
+        hobby: ["篮球", "足球"],
+        family: {
+          baby: "pink",
+        },
+      };
+
+      const o = {};
+
+      function deepCopy(newObj, oldObj) {
+        for (let k in oldObj) {
+          //处理对象里面有数组的问题
+          if (oldObj[k] instanceof Array) {
+            //创建空数组
+            newObj[k] = [];
+            //再次遍历，用递归
+            deepCopy(newObj[k], oldObj[k]);
+          } else if (oldObj[k] instanceof Object) {
+            //处理对象里面有对象的问题
+
+            //创建空对象
+            newObj[k] = {};
+            //再次遍历，用递归
+            deepCopy(newObj[k], oldObj[k]);
+          } else {
+            //k是属性名，oldObj[k]是属性值
+            newObj[k] = oldObj[k];
+          }
+        }
+      }
+      deepCopy(o, obj);
+      console.log(obj);
+
+      o.age = 20;
+      o.hobby[0] = "跑步";
+      console.log(o);
+
+      o.family.baby = "red";
+      console.log(o);
+    </script>
+  </body>
+</html>
