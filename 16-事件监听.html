@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      .box {
+        position: relative;
+        width: 400px;
+        height: 300px;
+        background-color: pink;
+        margin: 100px auto;
+      }
+
+      button {
+        position: absolute;
+        top: 0;
+        right: 0;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="box">
+      <button>x</button>
+    </div>
+
+    <script>
+      //事件监听：检测程序是否有事件产生，一旦有事件触发，就会立即调用一个函数做出响应
+      //事件监听三要素：事件源、事件类型、事件处理函数
+      //事件源：事件触发的元素
+      //事件类型：事件触发的类型
+      //事件处理函数：事件触发时要执行的函数
+
+      //需求：点击按钮后，弹出对话框
+      // const btn = document.querySelector("button");
+      // btn.addEventListener("click", function () {
+      //   alert("你好呀~");
+      // });
+
+      //需求：点击按钮后，关闭盒子
+      //获取
+      const btn = document.querySelector("button");
+      const box = document.querySelector(".box");
+      //事件监听
+      //关闭盒子
+      btn.addEventListener("click", function () {
+        box.style.display = "none";
+      });
+    </script>
+  </body>
+</html>

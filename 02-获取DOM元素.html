@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="box">123</div>
+    <div class="box">abc</div>
+
+    <p id="nav">导航栏</p>
+
+    <ul>
+      <li>首页</li>
+      <li>关于我们</li>
+      <li>联系我们</li>
+      <li>加入我们</li>
+    </ul>
+
+    <script>
+      //获取的是第一个
+      const box = document.querySelector("div");
+      //或者
+      //const box=document.querySelector('.box')
+      console.log(box);
+
+      const nav = document.querySelector("#nav");
+      //其他写法,逐渐不再使用了
+      // const nav = document.getElementById("nav");
+      console.log(nav);
+      //可直接修改样式
+      nav.style.color = "red";
+      console.log("----------------");
+
+      //获取第一个li
+      // const li = document.querySelector("ul li:first-child");
+      // console.log(li);
+
+      //获取所有li
+      const lis = document.querySelectorAll("ul li");
+      //得到的其实是个伪数组，不能增删改查
+      console.log(lis);
+      //获取多个dom元素不能直接修改样式
+      //只能通过循环遍历每个元素，才能修改样式
+      for (let i = 0; i < lis.length; i++) {
+        console.log(lis[i]);
+      }
+    </script>
+  </body>
+</html>

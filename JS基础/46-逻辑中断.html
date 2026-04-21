@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function fn(x, y) {
+        x = x || 0;
+        y = y || 0;
+        console.log(x + y);
+      }
+      fn();
+      // fn(1, 2);
+      //上面的相当于
+      function fn(x = 0, y = 0) {
+        console.log(x + y);
+      }
+      fn();
+      fn(1, 2);
+
+      // console.log(false && 11);
+      // console.log(false && 3 + 5);
+      // console.log(undefined && 10);
+      // console.log(null && 10);
+
+      // let age = 18;
+      // console.log(false && age++);
+
+      // console.log(11 && 22); //都是真，输出最后一个真值
+      // console.log(11 || 22); //都是真，输出第一个真值
+    </script>
+  </body>
+</html>

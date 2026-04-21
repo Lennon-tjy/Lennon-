@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      .box {
+        text-align: center;
+        margin-top: 100px;
+      }
+
+      .box input {
+        width: 500px;
+        height: 50px;
+        background-color: #f5f5f5;
+        font-size: 16px;
+        padding-left: 10px;
+        border-radius: 5px;
+        border: none;
+        outline: none;
+        transition: all 0.3s ease-in-out;
+        vertical-align: bottom;
+      }
+
+      .box input:focus {
+        width: 600px;
+        height: 70px;
+      }
+
+      .box input:focus + button {
+        width: 100px;
+        height: 70px;
+        font-size: 20px;
+      }
+
+      .box button {
+        width: 70px;
+        height: 50px;
+        font-size: 16px;
+        background-color: skyblue;
+        color: #fff;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .calculate {
+        font-size: 14px;
+        color: #999;
+        margin-top: 10px;
+        opacity: 0;
+      }
+
+      .banxin {
+        width: 580px;
+        margin: 20px auto;
+      }
+
+      .list {
+        height: 100px;
+      }
+
+      .list .item {
+        /* width: 100%; */
+        display: none;
+        gap: 10px;
+      }
+
+      .list .item .info {
+        border-bottom: 1px dashed #e4e4e4;
+        padding-bottom: 10px;
+      }
+
+      .info .name {
+        color: #fb7299;
+        font-size: 14px;
+        font-weight: bold;
+      }
+
+      .info .comment {
+        color: #333;
+        padding: 10px 0;
+      }
+
+      .info .time {
+        color: #999;
+        font-size: 12px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="box">
+      <input
+        type="text"
+        placeholder="发一条友善的评论吧"
+        rows="2"
+        maxlength="200"
+      />
+      <button>发布</button>
+      <div class="calculate">0 / 200 字</div>
+    </div>
+
+    <div class="list banxin">
+      <div class="item">
+        <i class="touxiang"
+          ><svg
+            t="1775564190610"
+            class="icon"
+            viewBox="0 0 1024 1024"
+            version="1.1"
+            xmlns="http://www.w3.org/2000/svg"
+            p-id="3982"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            width="32"
+            height="32"
+          >
+            <path
+              d="M236.652092 648.554653l48.82282-37.310014-56.711223-23.665209 7.888403 60.975223zM626.595045 648.554653l48.822819-37.310014-56.498022-23.665209 7.675203 60.975223z"
+              fill="#D7D8D9"
+              p-id="3983"
+            ></path>
+            <path
+              d="M511.6802 0a511.6802 511.6802 0 1 0 511.6802 511.6802 511.6802 511.6802 0 0 0-511.6802-511.6802z m-133.889652 442.176973l6.182802 53.726421h-20.254008l-8.528003-53.086821z m-26.436811 3.837601l6.182803 52.447221-17.695607 2.984801-8.741204-53.726421z m-3.837601 173.758068c-3.198001 12.365605-54.152821 66.092026-176.742869 62.254424 0 0-24.091609-255.8401-42.640017-317.668124a408.70456 408.70456 0 0 0 59.696023-23.238809l11.726005 213.200084s118.326046-7.035603 147.960858 42.640016a50.52842 50.52842 0 0 1 0 23.452009z m24.731209 38.162815L341.120133 518.502603s38.162815-7.675203 42.640017-2.984802l18.761607 138.366854z m45.624818-14.071205l-33.898813-260.104102s44.345617-4.690402 46.051218 0l21.320008 261.596502z m39.228816-195.291277h18.761607v52.873621h-18.761607z m47.330418 212.347283h-30.914012l-11.726005-140.285655h42.640017z m0-159.473662h-21.320008v-52.873621h21.320008zM767.5203 442.176973l6.182802 53.726421h-20.040808l-7.888403-53.726421z m-26.436811 3.837601l6.182803 52.447221-17.695607 2.984801-8.741203-53.726421z m-3.837601 173.758068c-3.198001 12.365605-54.152821 66.092026-176.742869 62.254424 0 0-24.091609-255.8401-42.640017-317.668124a408.70456 408.70456 0 0 0 59.056423-23.238809l11.726005 213.200084s118.326046-7.035603 147.960858 42.640016a44.985218 44.985218 0 0 1 0.8528 23.452009z m24.73121 38.162815l-30.914012-139.432854s37.949615-7.675203 42.640016-2.984802l18.548407 138.366854z m45.624817-14.071205l-33.685613-260.104102s44.558817-4.690402 46.051218 0l21.320009 261.596502z m39.442016-195.291277h19.827608v52.873621h-18.548408z m47.330418 213.200084h-31.127212l-11.726004-140.925256h42.640016z m-21.320008-159.473663v-52.87362h21.320008v52.87362z"
+              fill="#D7D8D9"
+              p-id="3984"
+            ></path>
+          </svg>
+        </i>
+        <div class="info">
+          <div class="name">哈哈哈</div>
+          <div class="comment">
+            大家辛苦啦，感谢各位大大的努力，能圆满完成真是太好了！
+          </div>
+          <div class="time">2026-04-07 20:02:31</div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      //获得焦点，显示text
+      const input = document.querySelector("input");
+      const calculate = document.querySelector(".calculate");
+
+      input.addEventListener("focus", function () {
+        calculate.style.opacity = 1;
+      });
+
+      //失去焦点，隐藏text
+      input.addEventListener("blur", function () {
+        calculate.style.opacity = 0;
+      });
+
+      //用户输入，更新text
+      input.addEventListener("input", function () {
+        calculate.innerHTML = `${input.value.length} / 200 字`;
+
+        if (input.value.length > 200) {
+          calculate.innerHTML = "最多输入200个字";
+          //禁止输入
+          input.value = input.value.slice(0, 200);
+        }
+      });
+
+      //按下回车，发布评论
+      const item = document.querySelector(".item");
+      const comment = document.querySelector(".comment");
+
+      input.addEventListener("keyup", function (e) {
+        if (e.key === "Enter") {
+          //判断是否输入为空
+          if (input.value.trim() !== "") {
+            item.style.display = "flex";
+            comment.innerHTML = input.value;
+          }
+          //按下回车后清空输入框
+          input.value = "";
+          //按下回车后复原calculate
+          calculate.innerHTML = "0 / 200 字";
+        }
+      });
+    </script>
+  </body>
+</html>

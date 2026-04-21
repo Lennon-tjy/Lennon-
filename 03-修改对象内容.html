@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="box">文字内容</div>
+    <script>
+      const box = document.querySelector(".box");
+      console.log(box);
+      //获取内容
+      console.log(box.innerText);
+      //修改内容
+      // box.innerText = "新内容";
+      // box.innerText = "<strong>新内容</strong>"; //无法解析标签
+
+      //修改内容（方式二）
+      // box.innerHTML = "哈哈哈";
+      // 可以解析标签
+      box.innerHTML = "<strong>哈哈哈</strong>";
+    </script>
+  </body>
+</html>

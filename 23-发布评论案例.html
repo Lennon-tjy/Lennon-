@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      .box {
+        text-align: center;
+        margin-top: 100px;
+      }
+
+      .box input {
+        width: 500px;
+        height: 50px;
+        background-color: #f5f5f5;
+        font-size: 16px;
+        padding-left: 10px;
+        border-radius: 5px;
+        border: none;
+        outline: none;
+        transition: all 0.3s ease-in-out;
+        vertical-align: bottom;
+      }
+
+      .box input:focus {
+        width: 600px;
+        height: 70px;
+      }
+
+      .box input:focus + button {
+        width: 100px;
+        height: 70px;
+        font-size: 20px;
+      }
+
+      .box button {
+        width: 70px;
+        height: 50px;
+        font-size: 16px;
+        background-color: skyblue;
+        color: #fff;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .text {
+        font-size: 14px;
+        color: #999;
+        margin-top: 10px;
+        opacity: 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="box">
+      <input type="text" />
+      <button>发布</button>
+      <div class="text">0 / 200 字</div>
+    </div>
+
+    <script>
+      //获得焦点，显示text
+      const input = document.querySelector("input");
+      const text = document.querySelector(".text");
+
+      input.addEventListener("focus", function () {
+        text.style.opacity = 1;
+      });
+
+      //失去焦点，隐藏text
+      input.addEventListener("blur", function () {
+        text.style.opacity = 0;
+      });
+
+      //用户输入，更新text
+      input.addEventListener("input", function () {
+        text.innerHTML = `${input.value.length} / 200 字`;
+
+        if (input.value.length > 200) {
+          text.innerHTML = "最多输入200个字";
+          //禁止输入
+          input.value = input.value.slice(0, 200);
+        }
+      });
+    </script>
+  </body>
+</html>

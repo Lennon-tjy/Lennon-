@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //形参       //给个默认值更严谨，防止没有实参传过来而打印NAN
+      function getSum(start = 0, end = 0) {
+        let sum = 0;
+        for (let i = start; i <= end; i++) {
+          sum = sum + i;
+        }
+        console.log(sum);
+      }
+
+      //getSum(25,50);//实参
+      let num1 = +prompt("请输入第一个数");
+      let num2 = +prompt("请输入第二个数");
+      getSum(num1, num2); //实参也可以是变量
+    </script>
+  </body>
+</html>

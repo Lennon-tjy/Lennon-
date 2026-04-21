@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //正则表达式：用于匹配字符串中字符组合的模式 ，在js中，正则表达式也是对象
+      //作用：1.表单验证（匹配） 2.过滤敏感词（替换） 3.字符串中提取我们需要的部分（提取）
+
+      const str = /'我们在学习前端，希望学习前端能高新就业'/;
+      //正则表达式的使用
+      //定义规则
+      const reg = /前端/;
+
+      //是否匹配
+      console.log(reg.test(str)); //true，常用这种
+
+      console.log(reg.exec(str)); //返回的是数组，没有匹配到返回null
+    </script>
+  </body>
+</html>

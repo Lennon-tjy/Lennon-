@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //修饰符：约束正则表达式的某些细节行为，如是否区分大小写，是否支持多行匹配
+
+      console.log(/^java$/.test("java"));
+
+      //i：不区分大小写
+      console.log(/^java$/i.test("JAVA"));
+
+      //g：全局匹配
+      //替换
+      const str = "java是一门编程语言，学完JAVA工资很高";
+      console.log(str.replace(/java/gi, "前端"));
+    </script>
+  </body>
+</html>

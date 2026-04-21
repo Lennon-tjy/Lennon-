@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let str = "123";
+      console.log(Number(str));
+
+      console.log(Number("pink")); // NaN
+      console.log(Number("123pink")); // NaN
+
+      // let num = prompt("输入月薪");
+      // console.log(Number(num));
+      //或者
+      //
+      //或者(这种算隐式)
+      // let num = +prompt("输入月薪");
+      // console.log(num);
+
+      //和Number都是显式转换
+      //parseInt只保留整数
+      ///parseFloat可以保留小数位
+      //可用于在css中获取元素的宽度、高度的数值等
+      console.log(parseInt("12.34"));
+      console.log(parseInt("12.34px"));
+      console.log(parseInt("abc12.34px")); //NaN
+
+      //只能取前面数字开头的部分
+
+      console.log(parseFloat("12.34"));
+      console.log(parseFloat("12.34px"));
+      console.log(parseFloat("abc12.34px")); //NaN
+    </script>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //立即执行函数可以防止变量污染，即相同的变量可以互不干扰
+      //可以加名字也可以不加
+      //无需调用，本质上最后的括号就是调用了
+      //多个立即执行函数必须用分号隔开
+      // (function () {
+      //   console.log(10);
+      // })();
+
+      (function (x = 0, y = 0) {
+        console.log(x + y);
+        let num = 10;
+        console.log(num);
+      })(1, 2);
+
+      (function (x = 0, y = 0) {
+        console.log(x + y);
+        let num = 20;
+        console.log(num);
+      })(1, 5);
+
+      //还有另一种写法
+      // (function () {} ());
+      //绷不住了，一解开然后保存就变成上面的样子了
+    </script>
+  </body>
+</html>

@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //setInterval(函数，间隔时间(毫秒))
+      // setInterval(function () {
+      //   console.log("hhh");
+      // }, 1000);
+
+      function fn() {
+        console.log("hhh");
+      }
+      // setInterval(fn, 1000); //fn后面不要加()，否则会只执行一次
+      let n = setInterval(fn, 1000);
+      console.log(n); //输出的是数字（定时器的序号）
+      //关闭定时器
+      clearInterval(n);
+    </script>
+  </body>
+</html>

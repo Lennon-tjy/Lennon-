@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      span {
+        display: inline-block;
+        /* width: 250px; */
+        height: 30px;
+        line-height: 30px;
+        padding-left: 15px;
+        vertical-align: middle;
+      }
+
+      .error {
+        color: red;
+      }
+
+      .right {
+        color: #009933;
+      }
+    </style>
+  </head>
+
+  <body>
+    <input type="text" />
+    <span></span>
+
+    <script>
+      const reg = /^[a-zA-Z0-9-_]{6,16}$/;
+
+      const input = document.querySelector("input");
+      const span = input.nextElementSibling;
+      //失去焦点
+      input.addEventListener("blur", function () {
+        if (reg.test(input.value)) {
+          span.innerHTML = "输入格式正确";
+          span.className = "right";
+        } else {
+          span.innerHTML = "输入格式错误，请输入6-16位的英文数字下划线";
+          span.className = "error";
+        }
+      });
+    </script>
+  </body>
+</html>

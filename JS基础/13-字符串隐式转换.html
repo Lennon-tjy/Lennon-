@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 字符串隐式转换
+      // 字符串里能转换为数字的字符，都会被转换为数字
+      // 而不能转换的，如aa、ab等，只有遇到 - 或 * 或 /，才会显示NAN，遇到+，就会拼接
+      console.log("hhh" + 1);
+      console.log("2" - 1);
+      console.log(+"123"); //+也可以把字符串转换为数字
+      console.log(typeof +"123");
+    </script>
+  </body>
+</html>

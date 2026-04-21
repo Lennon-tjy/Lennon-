@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .father {
+        width: 200px;
+        height: 200px;
+        background-color: pink;
+      }
+
+      .son {
+        width: 100px;
+        height: 100px;
+        background-color: skyblue;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="father">
+      <div class="son"></div>
+    </div>
+    <script>
+      //事件冒泡：从子元素开始冒泡，直到dom根元素
+      const father = document.querySelector(".father");
+      const son = document.querySelector(".son");
+
+      //点击son/father/document后会依次从里到外执行*同名*事件
+      document.addEventListener("click", function () {
+        alert("点击了根元素");
+      }); //不添加，默认是false，开启冒泡机制
+
+      father.addEventListener("click", function () {
+        alert("点击了父元素");
+      });
+
+      son.addEventListener("click", function (e) {
+        alert("点击了子元素");
+
+        //阻止流动
+        e.stopPropagation();
+      });
+    </script>
+  </body>
+</html>

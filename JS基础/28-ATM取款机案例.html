@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let money = 1000;
+
+      while (1) {
+        let result = +prompt(`请您选择操作：
+      1.存钱
+      2.取钱
+      3.查看余额
+      4.退出`);
+
+        if (result === 4) {
+          break;
+        }
+
+        switch (result) {
+          case 1:
+            let save = +prompt("请输入存款金额：");
+            money = money + save;
+            break;
+
+          case 2:
+            let get = +prompt("请输入取款金额");
+            money = money - get;
+            break;
+
+          case 3:
+            alert(`您的余额为${money}元`);
+            break;
+
+          default:
+            alert("请输入正确的操作序号");
+        }
+      }
+    </script>
+  </body>
+</html>

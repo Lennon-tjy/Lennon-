@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <!-- 1. -->
+    <!-- <input type="text" value="hhh" /> -->
+
+    <!-- 2. -->
+    <input type="checkbox" />
+
+    <!-- 3. -->
+    <button>提交</button>
+
+    <script>
+      //1.
+      //获取input
+      // const input = document.querySelector("input");
+      // //获取值
+      // console.log(input.value);
+      // //修改值
+      // input.value = "xxx";
+      // //显示表单形式
+      // console.log(input.type);
+      // //修改表单形式
+      // input.type = "password";
+
+      //2.
+      const input = document.querySelector("input");
+      //console.log(input.checked); //显示true代表勾选了，false代表没勾选
+      input.checked = true;
+
+      //3.
+      const button = document.querySelector("button");
+      console.log(button.disabled); //默认是false，不禁用
+      button.disabled = true;
+    </script>
+  </body>
+</html>

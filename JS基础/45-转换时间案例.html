@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //用户输入秒数，可以自动转换为时分秒
+      let second = +prompt("请输入秒数：");
+      function getTime(t) {
+        //转换
+        let h = parseInt((t / 60 / 60) % 24); //除以 24 取余数,把超过24小时的时间，换算成当天的小时
+        let m = parseInt((t / 60) % 60); //把超过 60 分钟的部分去掉，只保留0~59.999... 之间的分钟数
+        let s = parseInt(t % 60);
+        h = h < 10 ? "0" + h : h;
+        m = m < 10 ? "0" + m : m;
+        s = s < 10 ? "0" + s : s;
+
+        return `转换完毕之后是${h}小时${m}分钟${s}秒`;
+      }
+      let result = getTime(second);
+      document.write(result);
+    </script>
+  </body>
+</html>

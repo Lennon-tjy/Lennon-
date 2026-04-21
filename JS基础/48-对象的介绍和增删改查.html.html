@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lennon</title>
+  </head>
+
+  <body>
+    <script>
+      //创建对象，对象是无序的
+      //相比于数组，对象的语义更明确
+      // let obj = {
+      //   name: "Lennon",
+      //   age: "18",
+      //   bool: "true",
+      // };
+
+      let obj1 = {
+        //属性：值
+        uname: "小米",
+        "goods-name": "小米14",
+        num: "10012816024",
+        weight: "0.55kg",
+        address: "中国大陆",
+        //方法：函数
+        //函数在对象里面叫方法
+        cal: function (x = 0, y = 0) {
+          console.log(x + y);
+        },
+        cal2: function (x = 0, y = 0) {
+          console.log(x * y);
+        },
+      };
+      obj1.cal(1, 2);
+      obj1.cal2(1, 2);
+      // console.log(obj1);
+
+      //增
+      obj1.price = "5999元";
+      //方法也可以在外面加
+      obj1.cal3 = function (x = 0, y = 0) {
+        console.log(x - y);
+      };
+      obj1.cal3(1, 2);
+
+      //删除属性
+      // delete obj1.uname;
+      // console.log(obj1);
+
+      //改
+      // obj1.uname = "小米14";
+      // obj.name = "Cristy";
+      // obj.male = "true";
+
+      //查
+      console.log(obj1.uname);
+      console.log(obj1["goods-name"]);
+      console.log(obj1["num"]); //这个之后会大量使用
+
+      //输出
+      console.log(obj1);
+    </script>
+  </body>
+</html>

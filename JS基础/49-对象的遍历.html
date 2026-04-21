@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //先看数组
+      // let arr = ["pink", "red", "green", "blue"];
+      // for (let k in arr) {
+      //   console.log(k); //输出的是数组的下标，但是确是字符串类型
+      // } //这种循环能遍历数组，但不推荐
+
+      //遍历对象 对象没有下标、长度，因此只能用上面的那种
+      let obj = {
+        uname: "pink",
+        age: "18",
+        gender: "男",
+      };
+
+      for (let k in obj) {
+        // console.log(k); //输出的是对象的属性名 'uname' 'age' 'gender'
+        // console.log(obj.k); //undefined
+        //console.log(obj.k)相当于console.log(obj."uname")
+
+        //但是带引号可以这样输出
+        // console.log(obj["uname"]);
+        //因此
+        console.log(obj[k]); //输出 pink 18 男
+      }
+    </script>
+  </body>
+</html>

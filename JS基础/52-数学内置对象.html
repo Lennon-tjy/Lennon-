@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //属性
+      console.log(Math.PI);
+      console.log(Math.E);
+      console.log("------------------");
+
+      //方法
+      console.log(Math.ceil(1.1)); //向上取整
+      console.log(Math.floor(1.9)); //向下取整
+      console.log(Math.round(2.4)); //四舍五入
+      console.log(Math.round(-1.5)); //-1
+      console.log(Math.round(-1.51)); //-2,因为-1.51离-2更近
+      console.log("-------------------");
+
+      console.log(Math.max(1, 2, 3, 4, 5)); //5
+      console.log(Math.min(1, 2, 3, 4, 5)); //1
+      console.log(Math.abs(-1)); //1,取绝对值
+      console.log(Math.pow(2, 3)); //2的3次方
+      console.log("--------------------");
+
+      //0-10之间的整数
+      console.log(Math.floor(Math.random() * 11));
+      //5-10之间的整数
+      console.log(Math.floor(Math.random() * 6) + 5);
+      //N-M之间的整数
+      // console.log(Math.floor(Math.random() * (M - N + 1)) + N);
+      console.log("--------------------");
+
+      let arr = [
+        "孙笑笑",
+        "邓紫凌",
+        "陈亦雯",
+        "杨婉琳",
+        "蔡文欣",
+        "张敏华",
+        "刘芷汐",
+        "聂静雯",
+        "陈锶妳",
+        "龙锦诗",
+        "石宇平",
+        "钟宇瀚",
+        "梁伟乾",
+        "虞志伟",
+        "黎子恒",
+        "王旭平",
+        "曾令锦",
+        "黄锐",
+        "张贤权",
+        "甘骏希",
+        "刘忠诚",
+        "邱翔",
+        "肖彤乐",
+        "麦智强",
+        "温汶斌",
+        "温东凯",
+        "练懿贤",
+        "卢泽铭",
+        "彭泳杰",
+        "罗卓璨",
+        "林泽栊",
+        "邓权丰",
+        "乐远航",
+        "吴佳鑫",
+        "孔志康",
+        "吴梓赫",
+        "施凯帆",
+        "何文钧",
+        "余昊聪",
+        "谭钧元",
+        "陈怡",
+        "陈钧",
+        "李承泽",
+        "蒋嘉乐",
+        "王许行",
+        "易博",
+        "何琪涛",
+        "肖卓海",
+      ];
+
+      let random = Math.floor(Math.random() * arr.length);
+      console.log(arr[random]);
+      //抽到后就从数组中删除(残缺)
+      arr.splice(random, 1);
+      console.log(arr);
+
+      console.log("--------------------");
+
+      function getRandom(N = 0, M = 0) {
+        return Math.floor(Math.random() * (M - N + 1) + N);
+      }
+      let result = getRandom(4, 8);
+      console.log(result);
+    </script>
+  </body>
+</html>

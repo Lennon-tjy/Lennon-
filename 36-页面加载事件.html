@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>页面加载事件</title>
+    <script>
+      //页面加载事件：当页面所有资源加载完成后，执行事件
+      //现在比较少用，但想要js写在上面就要添加这个
+      window.addEventListener("load", function () {
+        const btn = document.querySelector("button");
+        btn.addEventListener("click", function () {
+          alert(11);
+        });
+      });
+
+      //无需等待样式表、图像完全加载
+      // document.addEventListener("DOMContentLoaded", function () {
+      //   const btn = document.querySelector("button");
+      //   btn.addEventListener("click", function () {
+      //     alert(11);
+      //   });
+      // });
+    </script>
+  </head>
+  <body>
+    <button>点击</button>
+  </body>
+</html>

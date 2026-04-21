@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button>点击</button>
+
+    <script>
+      const btn = document.querySelector("button");
+      //以前的写法
+      // btn.onclick = function() {
+      //   alert("点击了按钮");
+      // }
+      // btn.onclick = null;
+
+      function fn() {
+        alert("点击了按钮");
+      }
+
+      btn.addEventListener("click", fn); //fn表示把函数 fn 交给点击事件，等点击的时候再执行，fn加了()就会立即执行
+      //解除绑定（匿名函数无法解绑）
+      btn.removeEventListener("click", fn);
+    </script>
+  </body>
+</html>

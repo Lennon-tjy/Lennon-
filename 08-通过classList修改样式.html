@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        width: 200px;
+        height: 200px;
+        background-color: pink;
+      }
+
+      .active {
+        color: red;
+        background-color: skyblue;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">123</div>
+
+    <script>
+      const box = document.querySelector(".box");
+
+      //className会覆盖之前的样式，而classList不会覆盖
+      // box.classList.add("active"); //追加
+      //box.classList.remove("active"); //删除
+      box.classList.toggle("active"); //切换，有就删掉，没有就加上
+    </script>
+  </body>
+</html>

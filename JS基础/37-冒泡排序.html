@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let arr = [2, 4, 3, 5, 1];
+      //方法1
+      // for (let i = 0; i < arr.length - 1; i++) {
+      //   for (let j = 0; j < arr.length - i - 1; j++) {
+      //     if (arr[j] > arr[j + 1]) {
+      //       let t = arr[j];
+      //       arr[j] = arr[j + 1];
+      //       arr[j + 1] = t;
+      //     }
+      //   }
+      // }
+
+      //方法2
+      // arr.sort();//默认是升序
+      // console.log(arr);
+
+      //升序  a,b谁大谁小未知，但只要return的值小于0，a就排在b前面，大于0，b就排在a前面
+      // arr.sort(function (a, b) {
+      //   return a - b;
+      // });
+      // console.log(arr);
+
+      //降序
+      arr.sort(function (a, b) {
+        return b - a;
+      });
+      console.log(arr);
+    </script>
+  </body>
+</html>

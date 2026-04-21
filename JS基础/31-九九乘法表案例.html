@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background-color: #f0f0f0;
+      }
+
+      span {
+        display: inline-block;
+        width: 100px;
+        padding: 5px 10px;
+        margin: 3px;
+        border-radius: 5px;
+        border: 1px solid pink;
+        box-shadow: 0 0 10px pink;
+        text-align: center;
+      }
+    </style>
+  </head>
+
+  <body>
+    <script>
+      for (let i = 1; i <= 9; i++) {
+        for (let j = 1; j <= i; j++) {
+          document.write(`<span>${j} x ${i} = ${i * j}</span>`);
+        }
+        document.write("<br>");
+      }
+    </script>
+  </body>
+</html>
