@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kennoily</title>
+    <link rel="stylesheet" href="../icon/炫酷导航栏/iconfont.css" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: #000;
+      }
+
+      .menu {
+        position: relative;
+        width: 300px;
+        height: 300px;
+        margin: 200px auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .btn {
+        position: relative;
+        width: 80px;
+        height: 80px;
+        background-color: #303640;
+        color: #fff;
+        border: 2px solid #fff;
+        border-radius: 50%;
+        cursor: pointer;
+        z-index: 100;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: all 1.3s;
+      }
+
+      .menu span {
+        position: absolute;
+        width: 60px;
+        height: 60px;
+        background-color: #303640;
+        border-radius: 50%;
+        cursor: pointer;
+        border: 2px solid var(--col);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 0 30px 10px var(--col);
+        transition:
+          transform 0.3s calc(0.1s * var(--i)),
+          background-color 0s,
+          box-shadow 0s;
+      }
+
+      .menu .icon-jiahao {
+        font-size: 26px;
+      }
+
+      .menu span i {
+        font-size: 20px;
+        color: var(--col);
+      }
+
+      .menu span .icon-siyecao {
+        font-size: 15px;
+      }
+
+      .menu span .icon-SVG_yangjiaobiao-miaobian,
+      .menu span .icon-fangzi {
+        font-size: 25px;
+      }
+
+      .menu:hover .btn {
+        transform: rotate(315deg);
+      }
+
+      .menu:hover span {
+        /* 写反了 */
+        /* transform: translateX(80px) rotate(calc(var(--i) * 45deg)); */
+        transform: rotate(calc(var(--i) * 45deg)) translateX(110px);
+      }
+
+      .menu:hover span i {
+        transform: rotate(calc(var(--i) * -45deg));
+      }
+
+      .menu span:hover {
+        box-shadow:
+          0 0 10px var(--col),
+          0 0 20px var(--col),
+          0 0 30px var(--col);
+        background-color: var(--col);
+        transition: all 0s;
+      }
+
+      .menu span:hover i {
+        color: #000;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- menu作为父元素定位 -->
+    <div class="menu">
+      <div class="btn">
+        <i class="iconfont icon-jiahao"></i>
+      </div>
+      <span style="--i: 0; --col: #ff2972">
+        <i class="iconfont icon-fangzi"></i>
+      </span>
+      <span style="--i: 1; --col: #fee800">
+        <i class="iconfont icon-siyecao"></i>
+      </span>
+      <span style="--i: 2; --col: #04fc43">
+        <i class="iconfont icon-liwuhuodong"></i>
+      </span>
+      <span style="--i: 3; --col: #fe00f1">
+        <i class="iconfont icon-shezhi"></i>
+      </span>
+      <span style="--i: 4; --col: #00b0fe">
+        <i class="iconfont icon-xinfeng"></i>
+      </span>
+      <span style="--i: 5; --col: orange">
+        <i class="iconfont icon-gouwuche"></i>
+      </span>
+      <span style="--i: 6; --col: purple">
+        <i class="iconfont icon-SVG_yangjiaobiao-miaobian"></i>
+      </span>
+      <span style="--i: 7; --col: cyan">
+        <i class="iconfont icon-xingxing"></i>
+      </span>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,371 @@
+/* 本来都是用vw单位，但为了适配横屏，都改成vmin单位  Ctrl+H是替换*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  padding-bottom: 18.6667vmin; /* 底部导航栏高度 */
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent; /* 移除点击变亮效果 */
+}
+
+input,
+button,
+textarea {
+  color: inherit;
+  font: inherit;
+  border: none;
+}
+
+a:focus,
+input:focus,
+button:focus,
+textarea:focus {
+  outline: none;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+:root {
+  --text1: #121826;
+  --text2: #3c3e42;
+  --text3: #848484;
+  --text4: #979797;
+  --text5: #c3c3c5;
+  --text6: #6f6f6f;
+  --text-green: #2cb5a5;
+}
+
+/* 头部 */
+.header {
+  position: relative;
+  height: 34.6667vmin;
+  /* background-color: pink; */
+  padding: 8vmin 4vmin 0;
+}
+
+.header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 29.3333vmin;
+  background: linear-gradient(180deg, #3ecec5db 0%, #26bcc6 100%);
+  border-bottom-left-radius: 40vmin 5.3333vmin; /*左下角 水平半径40vmin，垂直半径5.3333vmin，就成了椭圆型*/
+  border-bottom-right-radius: 40vmin 5.3333vmin;
+}
+
+.header h1 {
+  position: absolute;
+  font-size: 4.8vmin;
+  color: #fff;
+  font-weight: 106.6667vmin;
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: pointer;
+}
+
+.search {
+  position: absolute;
+  bottom: 0;
+  height: 10.6667vmin;
+  padding-left: 5.3333vmin;
+  width: calc(100% - 8vmin);
+  border-radius: 5.8667vmin;
+  line-height: 10.6667vmin;
+  color: var(--text4);
+  font-size: 3.4667vmin;
+  background-color: #ffffff;
+  box-shadow: 0vmin 2vmin 2.9333vmin -0.9333vmin #e0ecfa;
+}
+
+.search svg {
+  width: 4.5333vmin;
+  height: 4.5333vmin;
+  fill: var(--text4);
+  vertical-align: middle;
+}
+
+/* 原来没有input标签，这是我自己添加的 */
+.search input {
+  width: calc(100% - 10vmin);
+  border: none;
+  outline: none;
+  font-size: 3.4667vmin;
+  color: var(--text4);
+  background: transparent;
+  vertical-align: middle;
+}
+
+.search input::placeholder {
+  color: var(--text4);
+  opacity: 1;
+}
+
+/* 导航栏*/
+.nav {
+  padding: 6.1333vmin 4vmin;
+}
+
+.nav ul {
+  display: flex;
+}
+
+.nav ul li {
+  flex: 1;
+  text-align: center;
+}
+
+.daohang svg {
+  width: 12.2667vmin;
+  height: 12.2667vmin;
+}
+
+.daohang h3 {
+  font-size: 3.7333vmin;
+  font-weight: 160vmin;
+  color: var(--text1);
+  margin-bottom: 1.0667vmin;
+}
+
+.daohang p {
+  font-size: 2.9333vmin;
+  color: var(--text3);
+}
+
+.daohang1 {
+  margin-top: 6.4vmin;
+}
+
+.daohang1 svg {
+  width: 8.2667vmin;
+  height: 8.2667vmin;
+}
+
+.daohang1 p {
+  font-size: 3.4667vmin;
+  color: var(--text2);
+}
+
+/* banner */
+.banner {
+  height: 32vmin;
+  padding: 2.6667vmin 4vmin;
+}
+
+.banner img {
+  width: 100%;
+  height: 100%;
+  border-radius: 5.3333vmin;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* 标签栏tab模块 */
+.tabs-card {
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+  height: 11.7333vmin;
+  line-height: 11.7333vmin;
+}
+
+.tabs-card ul {
+  display: flex;
+  justify-content: center;
+}
+
+.tabs-card ul li {
+  position: relative;
+  padding: 0 3.4667vmin;
+  color: var(--text4);
+  font-size: 4.2667vmin;
+  cursor: pointer;
+}
+
+.tabs-card ul li.active {
+  color: var(--text1);
+  font-weight: 160vmin;
+}
+
+.line {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 5.3333vmin;
+  height: 0.5333vmin;
+  background-color: var(--text-green);
+  transform: translateX(-50%);
+}
+
+/* 内容模块 */
+.tabs-content {
+  padding: 0 4vmin;
+}
+
+.con-item {
+  padding: 5.3333vmin 0 4vmin;
+  /* background-color: pink; */
+  border-bottom: 0.2667vmin solid var(--text5);
+}
+
+.con-head {
+  height: 10.6667vmin;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.touxiang {
+  width: 10.6667vmin;
+  height: 10.6667vmin;
+  background-color: #0096ff;
+  border-radius: 50%;
+  margin-right: 2.6667vmin;
+}
+
+.touxiang svg {
+  width: 100%;
+  height: 100%;
+}
+
+button {
+  width: 17.6vmin;
+  height: 7.2vmin;
+  color: var(--text-green);
+  border: 0.2667vmin solid var(--text-green);
+  border-radius: 3.6vmin;
+  text-align: center;
+  line-height: 7.2vmin;
+  font-size: 2.9333vmin;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.info {
+  flex: 1;
+}
+
+.name {
+  font-size: 3.7333vmin;
+  color: var(--text2);
+  margin-bottom: 0.8vmin;
+}
+
+.introduce {
+  font-size: 3.2vmin;
+  color: var(--text3);
+}
+
+.con-body h3 {
+  font-size: 4.2667vmin;
+  color: var(--text1);
+  margin: 2.1333vmin 0;
+  font-weight: 160vmin;
+}
+
+.con-body .tag {
+  font-size: 3.2vmin;
+  color: var(--text-green);
+  margin-bottom: 0.8vmin;
+}
+
+.con-body .content {
+  font-size: 3.7333vmin;
+  color: var(--text6);
+  line-height: 6.4vmin;
+  /* 多行显示省略号*/
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden; /*这三行是基本的，不能省略*/
+  -webkit-line-clamp: 2;
+  line-clamp: 2; /*限制文本显示的行数，超出部分截断并显示省略号*/
+  text-overflow: ellipsis; /*单行文本不可省略，多行文本可省略*/
+}
+
+.imgs {
+  display: flex;
+  justify-content: space-between;
+  margin: 2.1333vmin 0 2.6667vmin;
+}
+
+.imgs figure {
+  width: 28.2667vmin;
+  height: 28.2667vmin;
+  /* background-color: pink; */
+  overflow: hidden;
+  border-radius: 4vmin;
+}
+
+.imgs figure img {
+  width: 100%;
+  height: 100%;
+  border-radius: 4vmin;
+  transition: transform 0.3s ease;
+}
+
+.imgs figure:hover img {
+  transform: scale(1.2);
+}
+
+.logs {
+  color: var(--text5);
+  font-size: 3.2vmin;
+}
+
+.logs span a {
+  color: var(--text5);
+}
+
+.logs a:hover {
+  color: var(--text-green);
+}
+
+/* 底部选项卡 */
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 18.6667vmin;
+  background-color: #f0f0f0;
+}
+
+.footer ul {
+  display: flex;
+  height: 13.6vmin;
+  padding: 2.6667vmin;
+  margin: 1.3333vmin;
+}
+
+.footer ul li {
+  flex: 1;
+  text-align: center;
+  cursor: pointer;
+}
+
+.footer ul li svg {
+  width: 4.5333vmin;
+  height: 4.8vmin;
+}
+
+.footer ul li p {
+  font-size: 2.6667vmin;
+  color: var(--text6);
+}

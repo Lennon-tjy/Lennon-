@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kennoily</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      .boxx {
+        column-count: 5; /*多列布局*/
+        column-gap: 20px;
+        column-rule: 1px solid red; /*列之间的边框*/
+        border: 1px solid red;
+        margin: 30px 50px;
+      }
+
+      .box {
+        height: 150px;
+        background-color: pink;
+        margin-bottom: 20px;
+        break-inside: avoid; /*避免元素跨列*/
+      }
+
+      .boxx .box:nth-child(2) {
+        height: 260px;
+      }
+
+      .boxx .box:nth-child(9) {
+        height: 340px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="boxx">
+      <div class="box">1</div>
+      <div class="box">2</div>
+      <div class="box">3</div>
+      <div class="box">4</div>
+      <div class="box">5</div>
+      <div class="box">6</div>
+      <div class="box">7</div>
+      <div class="box">8</div>
+      <div class="box">9</div>
+      <div class="box">10</div>
+      <div class="box">11</div>
+      <div class="box">12</div>
+      <div class="box">13</div>
+      <div class="box">14</div>
+      <div class="box">15</div>
+      <div class="box">16</div>
+      <div class="box">17</div>
+    </div>
+  </body>
+</html>

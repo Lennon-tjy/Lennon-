@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kennoily</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: #ecf4ff;
+      }
+
+      .boxx {
+        width: 1180px;
+        margin: 200px auto;
+        /* border: 2px solid red; */
+        border-radius: 6px;
+        overflow: hidden;
+      }
+
+      .box-item {
+        width: 180px;
+        height: 90px;
+        border-radius: 6px;
+        background-color: pink;
+      }
+
+      .scroll {
+        display: flex;
+        gap: 20px;
+        animation: move 5s linear infinite;
+      }
+
+      .boxx:hover .scroll {
+        animation-play-state: paused;
+      }
+
+      .box {
+        display: grid;
+        grid-template-columns: repeat(6, 180px);
+        grid-template-rows: repeat(4, 90px);
+        gap: 16px 20px;
+      }
+
+      @keyframes move {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-1200px); /*1180px+两个box之间的gap:20px*/
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="boxx">
+      <div class="scroll">
+        <div class="box">
+          <div class="box-item">1</div>
+          <div class="box-item">2</div>
+          <div class="box-item">3</div>
+          <div class="box-item">4</div>
+          <div class="box-item">5</div>
+          <div class="box-item">6</div>
+          <div class="box-item">7</div>
+          <div class="box-item">8</div>
+          <div class="box-item">9</div>
+          <div class="box-item">10</div>
+          <div class="box-item">11</div>
+          <div class="box-item">12</div>
+          <div class="box-item">13</div>
+          <div class="box-item">14</div>
+          <div class="box-item">15</div>
+          <div class="box-item">16</div>
+          <div class="box-item">17</div>
+          <div class="box-item">18</div>
+          <div class="box-item">19</div>
+          <div class="box-item">20</div>
+          <div class="box-item">21</div>
+          <div class="box-item">22</div>
+          <div class="box-item">23</div>
+          <div class="box-item">24</div>
+        </div>
+        <div class="box">
+          <div class="box-item">1</div>
+          <div class="box-item">2</div>
+          <div class="box-item">3</div>
+          <div class="box-item">4</div>
+          <div class="box-item">5</div>
+          <div class="box-item">6</div>
+          <div class="box-item">7</div>
+          <div class="box-item">8</div>
+          <div class="box-item">9</div>
+          <div class="box-item">10</div>
+          <div class="box-item">11</div>
+          <div class="box-item">12</div>
+          <div class="box-item">13</div>
+          <div class="box-item">14</div>
+          <div class="box-item">15</div>
+          <div class="box-item">16</div>
+          <div class="box-item">17</div>
+          <div class="box-item">18</div>
+          <div class="box-item">19</div>
+          <div class="box-item">20</div>
+          <div class="box-item">21</div>
+          <div class="box-item">22</div>
+          <div class="box-item">23</div>
+          <div class="box-item">24</div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

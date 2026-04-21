@@ -1,0 +1,53 @@
+@font-face {
+  font-family: "iconfont"; /* Project id  */
+  src: url('iconfont.ttf?t=1773062455180') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-search:before {
+  content: "\e6b9";
+}
+
+.icon-browse:before {
+  content: "\e6c0";
+}
+
+.icon-comment:before {
+  content: "\e668";
+}
+
+.icon-customer-service:before {
+  content: "\e66a";
+}
+
+.icon-fabulous:before {
+  content: "\e66f";
+}
+
+.icon-Phone:before {
+  content: "\e89a";
+}
+
+.icon-arrow-right-bold:before {
+  content: "\e601";
+}
+
+.icon-arrow-left-bold:before {
+  content: "\e602";
+}
+
+.icon-favorites-fill:before {
+  content: "\e63b";
+}
+
+.icon-cart-full:before {
+  content: "\e826";
+}
+

@@ -1,0 +1,951 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>仿京东</title>
+  </head>
+  <body>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: #f5f5f5;
+      }
+
+      .whole {
+        width: 99%;
+        margin: 0 auto;
+        background-color: #fff;
+        border-radius: 20px;
+        box-shadow: #999 0px 0px 3px;
+        font:
+          15px / 1.5 system-ui,
+          -apple-system,
+          Segoe UI,
+          Roboto,
+          Ubuntu,
+          Cantarell,
+          Noto Sans,
+          sans-serif,
+          Apple Color Emoji,
+          Segoe UI Emoji,
+          Segoe UI Symbol,
+          Noto Color Emoji,
+          BlinkMacSystemFont,
+          Helvetica Neue,
+          Arial,
+          PingFang SC,
+          PingFang TC,
+          PingFang HK,
+          Microsoft Yahei,
+          Microsoft JhengHei;
+      }
+
+      .whole a,
+      .dizhi {
+        text-decoration: none;
+        color: #999;
+      }
+
+      .top {
+        display: flex;
+        padding: 10px;
+        justify-content: center;
+      }
+
+      .top :hover {
+        cursor: pointer;
+        color: #f30213;
+      }
+
+      .denglu a {
+        color: #f30213;
+        margin-left: -5px;
+      }
+
+      .left,
+      .right {
+        display: flex;
+      }
+
+      .left {
+        flex: 1;
+        gap: 30px;
+        margin-left: 300px;
+      }
+
+      .right {
+        margin-right: 350px;
+      }
+
+      .mainly {
+        background: linear-gradient(
+          #fff1eb,
+          #fff1eb,
+          #fef4f0,
+          #fdf4f0,
+          #faf3f0,
+          #f8f3f1,
+          #f5f5f5
+        );
+        height: 2060px;
+        padding-top: 20px;
+        display: flex;
+      }
+
+      .remai {
+        width: 280px;
+        height: 70px;
+        margin-top: 30px;
+        margin-left: 175px;
+        background: #fff1eb
+          url(https://static-alias-1.360buyimg.com/jzt/md/images/re-logo.png)
+          no-repeat center center/cover;
+        background-blend-mode: multiply;
+      }
+
+      .remai:hover {
+        cursor: pointer;
+      }
+
+      .search {
+        position: relative;
+        margin-left: 130px;
+        margin-top: 30px;
+      }
+
+      .search input {
+        width: 980px;
+        height: 50px;
+        justify-content: center;
+        border: 2px solid #f30213;
+        box-shadow: inset 0 0 0 1px #ff0f23;
+        border-radius: 8px;
+        outline: none;
+        font-size: 22px;
+        text-indent: 22px;
+      }
+
+      input::placeholder {
+        font-size: 19px;
+        color: #1f1f1f;
+      }
+
+      input:focus::placeholder {
+        color: #777777;
+      }
+
+      .search button {
+        position: absolute;
+        width: 100px;
+        height: 40px;
+        right: 6px;
+        top: 5px;
+        background-color: #ff0f23;
+        color: #fff;
+        border: none;
+        border-radius: 7px;
+        font-size: 22px;
+        cursor: pointer;
+        line-height: 20px;
+      }
+
+      .resou {
+        position: absolute;
+        margin-top: 90px;
+        margin-left: 588px;
+        font-size: 17px;
+        display: flex;
+        gap: 12px;
+      }
+
+      .resou a {
+        color: #1f1f1f;
+      }
+
+      .resou a:hover {
+        color: #f30213;
+      }
+
+      .box {
+        position: absolute;
+        width: 1750px;
+        height: 540px;
+        background-color: #fff;
+        margin-top: 140px;
+        margin-left: 170px;
+        border-radius: 16px;
+        display: flex;
+      }
+
+      .box1 {
+        width: 325px;
+        height: 500px;
+        background-color: #f7f7f7;
+        border-radius: 12px;
+        margin: 20px;
+        padding: 15px 22px;
+      }
+
+      .box1:hover ~ .fenleibox {
+        opacity: 1;
+        transition: opacity 0.2s ease;
+        /*?*/
+      }
+
+      .box1 ul {
+        font-size: 18px;
+        line-height: 34px;
+        color: #1f1f1f;
+        padding-left: 10px;
+        white-space: nowrap;
+      }
+
+      .box1 ul li {
+        border-radius: 8px;
+        padding: 3px 25px;
+        margin-left: -25px;
+      }
+
+      .box1 ul li:hover {
+        cursor: pointer;
+        color: #f30213;
+        background-color: #fff;
+        transition:
+          background-color 0.3s ease,
+          color 0.3s ease;  
+      }
+
+      .box2 {
+        position: relative;
+        width: 1045px;
+        height: 500px;
+        background-color: #f7f7f7;
+        border-radius: 12px;
+        margin-top: 20px;
+        padding: 100px 30px;
+        background: url(https://storage.360buyimg.com/component-libray/images/pc/pc_banner_first_focus_computer.gif)
+          no-repeat -200px center/cover;
+      }
+
+      .diannao,
+      .gongzuo {
+        font-size: 40px;
+        font-weight: 500;
+        line-height: 50px;
+        color: #faffff;
+      }
+
+      .jisu {
+        font-size: 20px;
+        color: #faffff;
+        line-height: 60px;
+      }
+
+       .dot ul {
+        position: absolute;
+        display: flex;
+        gap: 10px;
+        bottom: 30px;
+        left: 30px;
+      }
+
+      .dot ul li {
+        width: 10px;
+        height: 10px;
+        background-color: #efeeee;
+        border-radius: 50%;
+      }
+
+      .box3 {
+        width: 300px;
+        height: 110px;
+        background-color: #f7f7f7;
+        border-radius: 12px;
+        margin: 20px;
+        background: url(https://storage.360buyimg.com/component-libray/images/pc/pc_theme_state_subsidies_new.png)
+          no-repeat center center/cover;
+      }
+
+      .box4 {
+        width: 300px;
+        height: 110px;
+        background-color: #f7f7f7;
+        border-radius: 12px;
+        margin: 20px;
+        background: url(https://storage.360buyimg.com/component-libray/images/pc/pc_theme_beauty_new.png)
+          no-repeat center center/cover;
+      }
+
+      .box5 {
+        width: 300px;
+        height: 110px;
+        background-color: #f7f7f7;
+        border-radius: 12px;
+        margin: 20px;
+        background: url(https://storage.360buyimg.com/component-libray/images/pc/pc_theme_daily_necessities_new.png)
+          no-repeat center center/cover;
+      }
+
+      .box3:hover,
+      .box4:hover,
+      .box5:hover,
+      .box6:hover {
+        cursor: pointer;
+        transform: translateY(-2px);
+        transition: 
+          transform 0.3s ease
+      }
+
+      .box6 {
+        width: 300px;
+        height: 110px;
+        background-color: #f7f7f7;
+        border-radius: 12px;
+        margin: 20px;
+        background: url(https://storage.360buyimg.com/component-libray/images/pc/pc_theme_hardware_tools_new.png)
+          no-repeat center center/cover;
+      }
+
+      .fenleibox {
+        position: absolute;
+        width: 1350px;
+        height: 800px;
+        border-radius: 12px;
+        border: 3px solid #f30213;
+        background-color: #fff;
+        margin-top: 20px;
+        margin-left: 330px;
+        color: #1f1f1f;
+        font-size: 18px;
+        line-height: 2.3;
+        padding: 5px 15px;
+        z-index: 100;
+        opacity: 0;
+      }
+
+      .fenleibox:hover {
+        opacity: 1;
+        transition: opacity 0.2s ease;
+      }
+
+      .fenleibox p:hover {
+        cursor: pointer;
+      }
+
+      .boxx {
+        position: absolute;
+        width: 1750px;
+        height: auto;
+        background-color: #fff;
+        margin-top: 700px;
+        margin-left: 170px;
+        border-radius: 16px;
+        display: grid;
+        padding: 10px;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 10px;
+      }
+
+      .boxx h2 {
+        font-size: 25px;
+        color: #ff0f23;
+        margin-top: 3px;
+        margin-left: 30px;
+        grid-column: 1 / -1;   /*标题横跨六列，占满整行*/
+      }
+
+      .box7,
+      .box8,
+      .box9,
+      .box10,
+      .box11,
+      .box12,
+      .box13,
+      .box14,
+      .box15,
+      .box16,
+      .box17,
+      .box18,
+      .box19,
+      .box20,
+      .box21,
+      .box22,
+      .box23,
+      .box24 {
+        background-color: #f7f7f7;
+        border-radius: 12px;
+        height: 400px;
+      }
+
+      .box7:hover,
+      .box8:hover,
+      .box9:hover,
+      .box10:hover,
+      .box11:hover,
+      .box12:hover,
+      .box13:hover,
+      .box14:hover,
+      .box15:hover,
+      .box16:hover,
+      .box17:hover,
+      .box18:hover,
+      .box19:hover,
+      .box20:hover,
+      .box21:hover,
+      .box22:hover,
+      .box23:hover,
+      .box24:hover {
+        cursor: pointer;
+        border: 1px solid #f30213;
+      }
+
+      .shangpin {
+        height: 260px;
+        background-color: #fff;
+        border-radius: 12px;
+        margin: 5px;
+        background: url(https://img10.360buyimg.com/pcpubliccms/s1440x1440_jfs/t1/336151/1/4776/85082/68b53886F0d3281b9/c1cf2110339c0ad7.jpg.avif)
+          no-repeat center center/cover;
+      }
+
+      .title {
+        font-size: 19px;
+        padding-top: 5px;
+        margin-left: 4px;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        line-clamp:2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .sign {
+        display: flex;
+        gap: 5px;
+      }
+
+      .sign1 {
+        background-color: #f30213;
+        color: #fff;
+        padding: 0 4px;
+        margin-left: 4px;
+        border-radius: 3px;
+      }
+
+      .sign2 {
+        background-color: #fce3d8;
+        color: #f30213;
+        padding: 0 6px ;
+      }
+
+      .sign3 {
+        color: #f30213;
+        border: 1px solid #fce3d8;
+        padding:0 5px;
+        border-left: none;
+        margin-left: -5px;
+      }
+
+      .price {
+        color: #f30213;
+        font-size: 25px;
+        font-weight: bold;
+        padding: 5px 5px;
+      }
+
+      .shangpin2 {
+        height: 260px;
+        background-color: #fff;
+        border-radius: 12px;
+        margin: 5px;
+        background: url(https://img10.360buyimg.com/pcpubliccms/s1440x1440_jfs/t1/389691/9/1463/43907/696c8b35F42007957/0083320320470653.jpg.avif)
+          no-repeat center center/cover;
+      }
+
+      .sign22 {
+        background-color: #fce3d8;
+        color: #f30213;
+        padding: 0 6px ;
+        margin-left: 4px;
+      }
+
+      .sign4 {
+        background-color: rgb(249, 230, 195);
+        color: rgb(211, 148, 32);
+        padding: 0 6px ;
+      }
+
+      .shangpin3 {
+        height: 260px;
+        background-color: #fff;
+        border-radius: 12px;
+        margin: 5px;
+        background: url(https://img10.360buyimg.com/pcpubliccms/s1440x1440_jfs/t1/385354/29/10558/175564/696503d1Fecf4a901/8460ee6aff21e3b0.jpg.avif)
+          no-repeat center center/cover;
+      }
+
+      .shangpin4 {
+        height: 260px;
+        background-color: #fff;
+        border-radius: 12px;
+        margin: 5px;
+        background: url(https://img10.360buyimg.com/pcpubliccms/s1440x1440_jfs/t1/397624/23/4873/60065/699e4df6F3609437e/0083320320d73bb7.jpg.avif)
+          no-repeat center center/cover;
+      }
+
+      .shangpin5 {
+        height: 260px;
+        background-color: #fff;
+        border-radius: 12px;
+        margin: 5px;
+        background: url(https://img10.360buyimg.com/pcpubliccms/s1440x1440_jfs/t1/396382/21/20725/156137/69aac76eFe5b93073/008332032013256f.jpg.avif)
+          no-repeat center center/cover;
+      }
+
+      .shangpin6 {
+        height: 260px;
+        background-color: #fff;
+        border-radius: 12px;
+        margin: 5px;
+        background: url(https://img10.360buyimg.com/pcpubliccms/s1440x1440_jfs/t1/273325/25/6840/139738/67dd021cF300e2aab/8969f1d4be234088.jpg.avif)
+          no-repeat center center/cover;
+      }
+    
+      .dkhs {
+        display: flex;
+        gap: 70px;
+        padding-bottom: 40px;
+        padding-top: 40px;
+        background-color: #f5f5f5;
+        font-size: 22px;
+        padding-left: 400px;
+      }
+
+      .dkhs h4 {
+        display: block;
+        margin-top: 10px;
+      }
+
+      .duo,
+      .kuai,
+      .hao,
+      .sheng {
+        width: 60px;
+        height: 60px;
+        background-blend-mode: multiply;
+      }
+
+      .duo {
+        background: #f5f5f5
+          url(https://misc.360buyimg.com/jdf/1.0.0/unit/service/5.0.0/i/ico_service.png)
+          no-repeat center 0/50px;
+      }
+
+      .kuai {
+        background: #f5f5f5
+          url(https://misc.360buyimg.com/jdf/1.0.0/unit/service/5.0.0/i/ico_service.png)
+          no-repeat center -59px/50px;
+      }
+
+      .hao {
+        background: #f5f5f5
+          url(https://misc.360buyimg.com/jdf/1.0.0/unit/service/5.0.0/i/ico_service.png)
+          no-repeat center -119px/50px;
+      }
+
+      .sheng {
+        background: #f5f5f5
+          url(https://misc.360buyimg.com/jdf/1.0.0/unit/service/5.0.0/i/ico_service.png)
+          no-repeat center -179px/50px;
+      }
+
+      .pinlei,
+      .duocang,
+      .zhengpin,
+      .tiantian {
+        display: flex;
+        gap: 5px;
+      }
+
+      .fuwu {
+        display: flex;
+        width: 100%;
+        height: 280px;
+        padding-left: 400px;
+        padding-top: 25px;
+        background-color: #f5f5f5;
+        border: 4px solid #f1f1f1;
+        color: #777777;
+        gap: 200px;
+        line-height: 32px;
+      }
+
+      ul {
+        list-style: none;
+      }
+
+      .fuwu li:hover {
+        cursor: pointer;
+        color: #f30213;
+      }
+
+      .banquan {
+        width: 100%;
+        height: auto;
+        background-color: #f5f5f5;
+        padding: 20px 400px;
+        line-height: 30px;
+        text-align: center;
+      }
+
+      .banquan a {
+        color: #666;
+      }
+
+      .banquan a:hover {
+        color: #f30213;
+      }
+
+      .banquan p {
+        color: #999;
+        white-space: nowrap;
+      }
+
+      .banquan p:nth-child(1) {
+        margin-bottom: 8px;
+        padding-left: 70px;
+      }
+
+      .banquan p:nth-child(2) {
+        padding-left: 40px;
+      }
+    </style>
+
+    <div class="whole">
+      <header>
+        <div class="top">
+          <div class="left">
+            <div class="shouye"><a href="#">京东首页</a></div>
+            <div class="dizhi">广东</div>
+          </div>
+
+          <div class="right">
+            <div class="nihao"><a href="#">你好，</a></div>
+            <div class="denglu"><a href="#">请登录&nbsp&nbsp</a></div>
+            <div class="zhuce">
+              <a href="#">免费注册&nbsp&nbsp|&nbsp&nbsp</a>
+            </div>
+            <div class="dingdan">
+              <a href="#">我的订单&nbsp&nbsp|&nbsp&nbsp</a>
+            </div>
+            <div class="jingdong">
+              <a href="#">我的京东&nbsp&nbsp|&nbsp&nbsp</a>
+            </div>
+            <div class="qiye">
+              <a href="#">企业采购&nbsp&nbsp|&nbsp&nbsp</a>
+            </div>
+            <div class="kehu">
+              <a href="#">客户服务&nbsp&nbsp|&nbsp&nbsp</a>
+            </div>
+            <div class="daohang">
+              <a href="#">网站导航&nbsp&nbsp|&nbsp&nbsp</a>
+            </div>
+            <div class="shouji">
+              <a href="#">手机京东&nbsp&nbsp|&nbsp&nbsp</a>
+            </div>
+            <div class="wangzhan"><a href="#">网站无障碍</a></div>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <div class="mainly">
+          <div class="remai"></div>
+
+          <div class="search">
+            <input type="text" placeholder="水果礼盒送礼" />
+            <button>搜索</button>
+          </div>
+
+          <div class="resou">
+            <a href="#">汽车坐垫</a>
+            <a href="#">进口牛奶</a>
+            <a href="#">奶粉成人</a>
+            <a href="#">洗车机</a>
+            <a href="#">2080ti</a>
+            <a href="#">车载香水</a>
+            <a href="#">茶吧机</a>
+            <a href="#">芝士碎</a>
+            <a href="#">电冰箱</a>
+            <a href="#">休闲裤</a>
+            <a href="#">菜籽油</a>
+            <a href="#">脱毛膏</a>
+          </div>
+
+          <div class="box">
+            <div class="box1">
+              <h2>分类</h2>
+              <ul>
+                <li>
+                  冰洗 &nbsp/&nbsp 空调 &nbsp/&nbsp 电视 &nbsp/&nbsp 厨卫大电
+                </li>
+                <li>电脑 &nbsp/&nbsp 办公 &nbsp/&nbsp 文具用品</li>
+                <li>手机 &nbsp/&nbsp 运营商 &nbsp/&nbsp 数码</li>
+                <li>生活电器 &nbsp/&nbsp 厨房小电 &nbsp/&nbsp 个护健</li>
+                <li>食品 &nbsp/&nbsp 酒类 &nbsp/&nbsp 生鲜 &nbsp/&nbsp 特产</li>
+                <li>美妆 &nbsp/&nbsp 个护清洁 &nbsp/&nbsp 宠物</li>
+                <li>元器件 &nbsp/&nbsp 劳保物资 &nbsp/&nbsp 五金机电</li>
+                <li>家装 &nbsp/&nbsp 建材 &nbsp/&nbsp 家具</li>
+                <li>家居日用 &nbsp/&nbsp 厨具</li>
+                <li>男鞋 &nbsp/&nbsp 运动 &nbsp/&nbsp 户外</li>
+                <li>男装 &nbsp/&nbsp 女装 &nbsp/&nbsp 童装 &nbsp/&nbsp 内衣</li>
+              </ul>
+            </div>
+            <div class="box2">
+              <div class="diannao">电脑性能全系巅峰</div>
+              <div class="gongzuo">工作娱乐畅享无忧</div>
+              <div class="jisu">极速性能 &nbsp超值钜惠</div>
+              <div class="dot">
+                <ul>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                </ul>
+              </div>
+            </div>
+            <div class="threebox">
+              <div class="box3"></div>
+              <div class="box4"></div>
+              <div class="box5"></div>
+              <div class="box6"></div>
+            </div>
+
+            <div class="fenleibox"><p>冰箱 > &nbsp
+            自动制冰 超薄嵌入 主动除菌 大容量 双系统 高保鲜 法式多门 十字门</p>
+<p>洗衣机 >&nbsp
+多筒洗衣机 洗烘套装 滚筒洗衣机 洗烘一体机 波轮洗衣机 烘干机 内衣/裤洗衣机 壁挂洗衣机</p>
+<p>空调 >&nbsp
+舒适风空调 健康风空调 挂机空调 柜机空调 空调套装 移动空调</p>
+<p>中央空调 >&nbsp
+风管机 多联机 厨房空调 商用柜机 基站空调 天花板吸顶空调 空气能地暖空调</p>
+<p>电视 >&nbsp
+百吋电视 98英寸电视 游戏电视 艺术电视 低反屏 MiniLED会议电视 触控电视</p>
+<p>厨卫大电 >&nbsp
+油烟机 灶具 烟灶套装 集成烹饪中心 集成净洗中心 消毒柜 洗碗机 电热水器 燃气热水器 壁挂炉 空气能热水器 嵌入式微蒸烤太阳能热水器 烟机灶具配件 电热水龙头</p>
+<p>商用电器 >&nbsp
+商用冰箱 商用冰柜 展示柜 制冰机 保鲜工作台 冰淇淋机 自动售货机 熟成柜/挂肉柜/排酸柜晾鸭柜/晾胚柜 商用酒柜 商用啤酒机 香肠/热狗机 棉花糖机 爆米花机 关东煮机 章鱼丸机 商用炒冰机 肠粉机 商用蛋卷机 刨冰/沙冰机 商用电烧烤炉 商用榨汁机/甘蔗机 商用电饭煲 商用电压力锅 商用台式电磁炉/电陶炉 商用立式电磁炉/大锅灶 商用电饼铛/煎包锅贴机/烤饼机扒炉/铁板烧/手抓饼炉 商用微波炉 商用烤箱/烘烤炉蒸柜/蒸饭车蒸炉/蒸包炉电炸炉/炸锅煮面桶/汤桶醒发箱/发酵设备保温售饭台 食品烘干机/干果机 商用炒菜机 商用热水器 饮料机 果糖机 商用咖啡机 商用净水设备 商用开水器/蒸气奶泡机 商用洗碗机 商用吸尘器 商用油烟机 油烟净化器 商用消毒柜 商用洗菜/洗米机商用洗衣/干衣设备 商用家电清洗机 商用垃圾处理器 商用磨豆机 商用切菜机 封口/封杯机 商用面条/压面机 商用和面机/打蛋机 商用豆浆机/破壁机 商用磨粉机/粉碎机 商用绞肉机/切肉机/切片机 电动餐车 商用空调 商用除湿机 商用电风扇/冷风扇 会议电视 酒店电视 门店电视 会议平板一体机 教育平板一体机 户外电视 防爆电视</p>
+<p>家电配件 >&nbsp
+电视配件 电视挂架 电视支架 电视伸缩支架 电视移动支架 电视艺术支架 电视遥控器 空调配件 空调挡风板 空调挡风帘 空调支架 空调遥控器 空调铜管 空调接水盘 空调减震垫 空调排水管 洗衣机配件 洗衣机底座 洗衣机脚垫 洗衣机排水管 洗衣机进水管 洗衣机罩 洗衣机水龙头 洗衣机下水三通 冰箱配件 冰箱门封条 冰箱底座架 厨卫大电配件 聚火罩 燃气灶 支架油烟机 挂钩油烟机 排烟管 厨房小电配件 生活电器配件 吸尘器支架 扫地机器人 支架热水器 镁棒吹风机支架 风扇罩 扫地机 清洁液 洗地机 清洁液个护健康配件 剃须刀刀头 电饭煲内胆 吹风机风嘴</p>
+<p>视听影音 >&nbsp
+KTV音响/点歌机回音壁/Soundbar HIFI专区 家庭影院 功放吸顶音响 播放器/DVD</p></div>
+          </div>
+
+          <div class="boxx">
+            <h2>为你推荐</h2>
+            <div class="box7">
+              <div class="shangpin"></div>
+              <div class="title">
+                水星家纺A类新疆棉花被子冬被空调被夏凉被纯棉加厚母婴级保暖春秋被
+                立体-蔚蓝 150*200cm-6斤春秋被
+              </div>
+              <div class="sign">
+                <div class="sign1">京东物流</div>
+              <div class="sign2">分期免息</div>
+              <div class="sign3">12期</div></div>
+              <div class="price">&#165 245.98</div>
+            </div>
+
+            <div class="box8">
+              <div class="shangpin2"></div>
+              <div class="title">MDUG2025新款保温杯女生男高颜值水杯定制教师节礼物刻字印logo水 渐变绿-显温盖-316不锈钢</div>
+             <div class="sign"> <div class="sign22">分期免息</div>
+              <div class="sign3">3期
+              </div>
+              <div class="sign4">实惠品质好物</div>
+            </div>
+            <div class="price">&#165 123.70</div>
+            </div>
+            
+            <div class="box9"> <div class="shangpin3"></div>
+              <div class="title">奥克斯（AUX）2026新款按摩椅LH15A家用全身太空舱零重力多功能智能电动按摩沙发椅生日礼物送爸爸妈妈父母亲节 至尊旗舰款丨智能语音 腰腿热敷 脚底滚轮黑灰色</div>
+             <div class="sign"> <div class="sign22">分期免息</div>
+              <div class="sign3">12期
+              </div>
+              
+            </div>
+            <div class="price">&#165 2498.00</div></div>
+
+            <div class="box10"> <div class="shangpin4"></div>
+              <div class="title">Tory Burch汤丽柏琦【女神节礼物】 LEE RADZIWILL迷你双层斜挎包TB 154753 深沙棕色 200 OS</div>
+             <div class="sign">
+              <div class="sign1">京东物流</div> 
+              <div class="sign2">分期免息</div>
+              <div class="sign3">24期
+              </div>
+             
+            </div>
+            <div class="price">&#165 6291.00</div></div>
+            
+            <div class="box11"> <div class="shangpin5"></div>
+              <div class="title">浪鲸（SSWW）卫浴奶油风淋浴花洒套装智能数显独立按键花洒精致氛围灯家用花洒 奶白【超宽台钢琴键】新款058 四功能花洒</div>
+             <div class="sign"> 
+              <div class="sign4">优良材质</div>
+               <div class="sign4">工艺精致</div>
+                <div class="sign4">放心购物</div>
+            </div>
+            <div class="price">&#165 850.00</div></div>
+
+            <div class="box12"> <div class="shangpin6"></div>
+              <div class="title">家用触屏全自动清洗多功能316不锈钢豆浆机破壁机免煮免过滤4-5人 1200ml【升级精钢刀片/口感更细腻】 1.2L</div>
+             <div class="sign"> 
+              <div class="sign1">自营</div>
+              <div class="sign4">实惠品质好物</div>
+              </div> 
+              <div class="price">&#165 129.00</div>
+            </div> 
+            
+            <div class="box13"></div>
+            <div class="box14"></div>
+            <div class="box15"></div>
+            <div class="box16"></div>
+            <div class="box17"></div>
+            <div class="box18"></div>
+            <div class="box19"></div>
+            <div class="box20"></div>
+            <div class="box21"></div>
+            <div class="box22"></div>
+            <div class="box23"></div>
+            <div class="box24"></div>
+          </div>
+        </div>
+      </main>
+
+      <footer>
+        <div class="dkhs">
+          <div class="pinlei">
+            <div class="duo"></div>
+            <h4>品类齐全，轻松购物</h4>
+          </div>
+          <div class="duocang">
+            <div class="kuai"></div>
+            <h4>多仓直发，极速配送</h4>
+          </div>
+          <div class="zhengpin">
+            <div class="hao"></div>
+            <h4>正品行货，精致服务</h4>
+          </div>
+          <div class="tiantian">
+            <div class="sheng"></div>
+            <h4>天天低价，畅选无忧</h4>
+          </div>
+        </div>
+
+        <div class="fuwu">
+          <div class="gouwu">
+            <h3>购物指南</h3>
+            <ul>
+              <li>购物流程</li>
+              <li>会员介绍</li>
+              <li>生活旅行/团购</li>
+              <li>常见问题</li>
+              <li>大家电</li>
+              <li>联系客服</li>
+            </ul>
+          </div>
+          <div class="peisong">
+            <h3>配送方式</h3>
+            <ul>
+              <li>上门自提</li>
+              <li>211限时达</li>
+              <li>配送服务查询</li>
+              <li>配送费收取标准</li>
+            </ul>
+          </div>
+          <div class="zhifu">
+            <h3>支付方式</h3>
+            <ul>
+              <li>货到付款</li>
+              <li>在线支付</li>
+              <li>分期付款</li>
+              <li>公司转账</li>
+            </ul>
+          </div>
+          <div class="shouhou">
+            <h3>售后服务</h3>
+            <ul>
+              <li>售后政策</li>
+              <li>价格保护</li>
+              <li>退款说明</li>
+              <li>返修/退换货</li>
+              <li>取消订单</li>
+            </ul>
+          </div>
+          <div class="tese">
+            <h3>特色服务</h3>
+            <ul>
+              <li>夺宝岛</li>
+              <li>DIY装机</li>
+              <li>延保服务</li>
+              <li>京东E卡</li>
+              <li>京东通信</li>
+              <li>京鱼座智能</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="banquan">
+          <p>
+            <a href="#">关于我们</a> &nbsp|&nbsp
+            <a href="#">联系我们</a> &nbsp|&nbsp
+            <a href="#">联系客服</a> &nbsp|&nbsp
+            <a href="#">合作招商</a> &nbsp|&nbsp
+            <a href="#">商家帮助</a> &nbsp|&nbsp
+            <a href="#">营销中心</a> &nbsp|&nbsp
+            <a href="#">手机京东</a> &nbsp|&nbsp
+            <a href="#">友情链接</a> &nbsp|&nbsp
+            <a href="#">销售联盟</a> &nbsp|&nbsp
+            <a href="#">京东社区</a> &nbsp|&nbsp
+            <a href="#">风险监测</a> &nbsp|&nbsp
+            <a href="#">质量公告</a> &nbsp|&nbsp
+            <a href="#">隐私政策</a> &nbsp|&nbsp
+            <a href="#">京东公益</a> &nbsp|&nbsp
+            <a href="#">Media & IR</a>
+          </p>
+          <p>
+            京公网安备 11000002000088号 &nbsp|&nbsp 京ICP备11041704号
+            &nbsp|&nbsp ICP 药品医疗器械网络信息服务备案 &nbsp|&nbsp
+            自营医疗器械经营资质 &nbsp|&nbsp 药品网络交易第三方平台备案凭证
+            &nbsp|&nbsp 新出发京零 字第120007号
+          </p>
+          <p>
+            互联网出版许可证编号新出网证(京)字150号 &nbsp|&nbsp 出版物经营许可证
+            &nbsp|&nbsp 违法和不良信息举报电话: 4006561155
+          </p>
+          <p>
+            Copyright © 2004 - 2026 京东JINGDONG 版权所有 &nbsp|&nbsp
+            消费者维权热线: 4006067733 &nbsp|&nbsp 经营证照 &nbsp|&nbsp
+            医疗器械第三方平台备案凭证 (京) 网械平台备字 (2023) 第00013号
+            &nbsp|&nbsp 营业执照 &nbsp|&nbsp 增值电信业务经营许可证
+          </p>
+          <p>
+            京东旗下网站 :
+            <a href="#"> &nbsp 京东钱包</a> &nbsp|&nbsp
+            <a href="#">京东云</a>
+          </p>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
+
+

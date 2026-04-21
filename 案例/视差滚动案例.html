@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kennoily</title>
+  </head>
+  <body>
+    <div class="scroll"></div>
+
+    <section class="section1">
+      <div class="content">
+        <p>
+          夕阳是融化的铁，把云絮焊成金红的鳞甲。天空在燃烧，而大地只是沉默地承接这些温柔的灰烬。
+        </p>
+        <p>
+          这样的黄昏，让人想起将熄灭的柴火，明明灭灭地舔着旧事。而光影是狡黠的，它把柳枝拉长成琴弦，却让归鸟的翅膀在弦上拨出无声的颤音。
+        </p>
+        <p>偶尔有晚钟传来，像一粒铜纽扣，滚进群山厚重的褶皱里。</p>
+      </div>
+      <h2>落日夕阳</h2>
+    </section>
+
+    <section class="section2">
+      <div class="content">
+        <p>
+          山之仁，在于涵纳了苍天古木，也收容了遍野小草;或者环抱双手，让流水变成湖泊，或者裂开身躯，让瀑布倒挂前川，山谦卑地静立着，缄默地忍受着时间的风沙辗转的痛苦和人类的姿意给他的挫折。
+        </p>
+        <p>
+          情系江南山水间，无尽相思最永远。真情本美丽，来自水云间，天若有情梦明月，甘为做月老。梦里爱江南，竹船湖水边，一支情歌两人唱，笑的是玉莲。湖水情悠悠，竹筏俏连连。湖中鱼儿悄悄游，醉人的是远山一片。
+        </p>
+      </div>
+      <h2>山水湖色</h2>
+    </section>
+
+    <section class="section3">
+      <div class="content">
+        <p>
+          黎明前的黑暗渐渐退去，海天之间透出一抹亮光，像是点燃的火把，燃烧着深蓝的海水、灰色的云絮。渐渐地，整个东方的天空都被燃烧得红彤彤的。这是黎明的曙光，太阳从大海的寝宫冉冉升起，海天之间顿时光辉璀璨。
+        </p>
+        <p>
+          海上层层翻滚的浪花，就像天空中那洁白的云朵；海面上的轮渡，就像天空中的飞机；而整片蔚蓝的大海，就像那一望无际的天空。
+        </p>
+        <p>
+          所见滚滚波涛，击浪中流；沙鸥鸣空，锦鳞入水。海天一色，风华无边；长烟凌空，皓月千里。
+        </p>
+      </div>
+      <h2>广阔蓝海</h2>
+    </section>
+
+    <section class="section4">
+      <div class="content">
+        <p>
+          漫天飞雪中，万物似乎都沉寂下来，只有雪花的轻柔触碰和落地的声音在空气中回荡。雪后的枝头，挂满了晶莹的霜花，仿佛是大自然的鬼斧神工。
+        </p>
+        <p>
+          夜北风紧，开门雪尚飘。万里雪景中，玉树琼花，银装素裹，仿佛置身于童话世界。雪花在阳光的映照下闪烁着晶莹的光辉，如同一群小精灵在欢快地舞蹈，静谧而美丽。
+        </p>
+        <p>
+          雪花如诗，漫天飞舞，覆盖着银装素裹的大地。寒风凛冽，划过雪面，留下一道道优雅的痕迹。
+        </p>
+      </div>
+      <h2>白雪蓝天</h2>
+    </section>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+      }
+
+      /* 选择所有class属性以"section"开头的元素 */
+      section[class^="section"] {
+        width: 100%;
+        height: 100%;
+      }
+
+      .section1 {
+        background: url(../img/落日夕阳.jpg) no-repeat fixed center center/cover;
+      }
+
+      .section2 {
+        background: url(../img/山水湖色.jpg) no-repeat fixed center center/cover;
+      }
+
+      .section3 {
+        background: url(../img/广阔蓝海.jpg) no-repeat fixed center center/cover;
+      }
+
+      .section4 {
+        background: url(../img/白雪蓝天.jpg) no-repeat fixed center center/cover;
+      }
+
+      .content {
+        width: 100%;
+        height: 20%;
+        background-color: rgba(0, 0, 0, 0.9);
+        color: #fff;
+        line-height: 30px;
+        font-size: 20px;
+        padding: 30px;
+      }
+
+      section[class^="section"] h2 {
+        text-align: center;
+        font-weight: 400;
+        font-size: 60px;
+        margin-top: 200px;
+        letter-spacing: 10px;
+        color: #fff;
+      }
+
+      .scroll {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 0%;
+        height: 3px;
+        background: linear-gradient(
+          90deg,
+          /*0deg是从下到上，90deg是从左到右，180deg是从上到下，270deg是从右到左*/
+          #96f,
+          #bf70ff,
+          #e67aff,
+          #ff89dc,
+          #ffb90f
+        );
+        animation: scroll 2s linear;
+        /* 滚动时间线 */
+        animation-timeline: scroll();
+      }
+
+      @keyframes scroll {
+        0% {
+          width: 0%;
+        }
+        100% {
+          width: 100%;
+        }
+      }
+    </style>
+  </body>
+</html>

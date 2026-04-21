@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kennoily</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+      }
+
+      body {
+        overflow: hidden;
+        background: url(https://p3.ssl.qhimg.com/t01f2ef6db55b26126a.png)
+          no-repeat center/cover;
+      }
+
+      @keyframes move {
+        0% {
+          background-position: 0px 0px;
+        }
+        100% {
+          background-position: -13700px 0px;
+        }
+      }
+
+      .box {
+        width: 540px;
+        height: 513px;
+        background-color: pink;
+        margin: 255px;
+        background: url(https://p5.ssl.qhimg.com/t01e49babfa3523949f.png)
+          no-repeat left/13700px 513px;
+        animation: move 1s steps(25) infinite; /*逐帧动画，steps()表示将动画分割为离散的步骤*/
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box"></div>
+  </body>
+</html>

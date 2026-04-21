@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>仿oppoAI</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      .box {
+        width: 1300px;
+        margin: 100px auto;
+        /* border: 1px solid red; */
+      }
+
+      .scroll {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: auto; /*如果内容超过容器，自动显示滚动条*/
+      }
+
+      svg {
+        width: 5010px;
+        stroke-dasharray: 5010px;
+        stroke-dashoffset: 5010px;
+        animation: move 10s linear infinite;
+      }
+
+      @keyframes move {
+        0% {
+          stroke-dashoffset: 5010px;
+        }
+        100% {
+          stroke-dashoffset: 0;
+        }
+      }
+
+      .item {
+        position: absolute;
+        left: 30px;
+        top: 120px;
+        width: 258px;
+        font-size: 14px;
+      }
+
+      .item img {
+        width: 20px;
+      }
+
+      .item h5 {
+        font-size: 14px;
+        margin-bottom: 15px;
+        margin-top: 5px;
+      }
+
+      .item2 {
+        left: 450px;
+        animation: move2 1s /*运动时间*/ linear forwards 1s /*延迟时间*/; /*forwards是停在最后一帧状态*/
+        opacity: 0;
+      }
+
+      @keyframes move2 {
+        0% {
+          transform: translateY(0);
+        }
+        100% {
+          transform: translateY(-50px);
+          opacity: 1;
+        }
+      }
+
+      .item3 {
+        left: 888px;
+        top: 20px;
+        animation: move3 1s /*运动时间*/ linear forwards 2s /*延迟时间*/; /*forwards是停在最后一帧状态*/
+        opacity: 0;
+      }
+
+      .item3 h5 {
+        margin-top: 15px;
+      }
+
+      @keyframes move3 {
+        0% {
+          transform: translateY(0);
+        }
+        100% {
+          transform: translateY(40px);
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <div class="scroll">
+        <svg
+          class="pc-only absolute left-0 top-0 pc:w-4535px pc:h-301px"
+          viewBox="0 0 4535 301"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            id="quxian"
+            class="svg-path"
+            opacity="0.2"
+            d="M2 98.3546C177.569 -2.32258 469.504 -49.999 637.698 90.2674C742.655 177.796 841.5 348.045 1112.5 285.447C1296.5 242.945 1377 82.9804 1653.5 18.4478C1967.5 -54.8368 2072 134.055 2258 244.947C2494.5 385.947 2692.5 221.947 2883.5 96.9474C3059.07 -3.73182 3349.5 -49.999 3517.7 90.2674C3622.65 177.796 3721.5 348.045 3992.5 285.447C4176.5 242.945 4257 82.9804 4533.5 18.4478"
+            stroke="url(#paint0_linear_7486_10-0)"
+            stroke-width="3"
+            stroke-linecap="round"
+          ></path>
+          <defs></defs>
+          <linearGradient
+            id="paint0_linear_7486_10-0"
+            x1="2882.52"
+            y1="125.846"
+            x2="5904.3"
+            y2="125.846"
+            gradientUnits="userSpaceOnUse"
+            class=""
+          >
+            <stop stop-color="#FD5225" class=""></stop>
+            <stop offset="0.177885" stop-color="#FE6916" class=""></stop>
+            <stop offset="0.287032" stop-color="#FF9E06" class=""></stop>
+            <stop offset="0.428304" stop-color="#FEAE01" class=""></stop>
+            <stop offset="0.557692" stop-color="#E97842" class=""></stop>
+            <stop offset="0.67018" stop-color="#D95070" class=""></stop>
+            <stop offset="0.820014" stop-color="#C851E5" class=""></stop>
+            <stop offset="1" stop-color="#4667FD" class=""></stop>
+          </linearGradient>
+        </svg>
+
+        <div class="item item1">
+          <img
+            src="https://www.oppo.com/content/dam/oppo_com/oppo/event-page-asset/oppo-ai/cn/v1/assets/images-milestone-star-1.png.avif"
+            alt=""
+          />
+          <h5>2025.8</h5>
+          <p>小布助手月活近 1.7 亿，成为国内活跃用户数最多的手机 AI 助手。</p>
+        </div>
+
+        <div class="item item2">
+          <img
+            src="https://www.oppo.com/content/dam/oppo_com/oppo/event-page-asset/oppo-ai/cn/v1/assets/images-milestone-star-1.png.avif"
+            alt=""
+          />
+          <h5>2025</h5>
+          <h5>升级 AI 战略</h5>
+          <p>
+            OPPO 在 2025 年移动通信大会（MWC2025）期间宣布升级 AI
+            战略，旨在通过自研创新和开放合作，为全球用户带来全面、安全、持续焕新的
+            AI 解决方案，成为“AI 体验引领者”。
+          </p>
+        </div>
+
+        <div class="item item3">
+          <p>
+            OPPO 承诺生成式 AI 功能将进入全产品系列，今年要让近 5 千万 OPPO
+            用户的手机搭载 GenAI 功能。
+          </p>
+          <h5>OPPO AI 手机战略</h5>
+          <h5>2024.6</h5>
+          <img
+            src="https://www.oppo.com/content/dam/oppo_com/oppo/event-page-asset/oppo-ai/cn/v1/assets/images-milestone-star-1.png.avif"
+            alt=""
+          />
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>仿优医问诊</title>
+    <link rel="icon" href="./优医问诊favicon.ico" />
+    <!-- rem单位是只跟着根元素（html）的字体大小（设置为了1rem）变化的单位 -->
+    <!-- Alt+z可以将px转为rem -->
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      body {
+        padding-top: 11.733vmin;
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI",
+          Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", sans-serif;
+      }
+
+      :root {
+        --text1: #121826;
+        --text2: #3c3e42;
+        --text3: #848484;
+        --text4: #c3c3c5;
+        --text-green: #16c2a3;
+      }
+
+      .nav-bar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        height: 11.733vmin;
+        background-color: #fff;
+        z-index: 999;
+        box-shadow: 0 0 0.1333rem rgba(0, 0, 0, 0.1);
+      }
+
+      .nav-bar .back {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 11.733vmin;
+        height: 11.733vmin;
+        cursor: pointer;
+      }
+
+      .nav-bar .back svg {
+        width: 4.533vmin;
+        height: 4.533vmin;
+      }
+
+      .nav-bar .zhuce {
+        width: 11.733vmin;
+        height: 11.733vmin;
+        font-size: 4.533vmin;
+        color: var(--text-green);
+        text-align: center;
+        line-height: 11.733vmin;
+        margin-right: 4vmin;
+      }
+
+      /* 头部制作 */
+      .header {
+        padding: 6.667vmin 4vmin 12vmin;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+      }
+
+      .header h1 {
+        font-size: 6.4vmin;
+        color: var(--text1);
+        font-weight: 500;
+      }
+
+      .header a {
+        color: var(--text2);
+        font-size: 4vmin;
+        display: flex;
+        align-items: center;
+        gap: 0.8vmin;
+      }
+
+      .header a svg {
+        width: 4.267vmin;
+        height: 4.267vmin;
+      }
+
+      /* form表单制作 */
+      .form {
+        padding: 0 4vmin;
+      }
+
+      .shuru {
+        padding: 4vmin 0;
+        border-bottom: 0.267vmin solid #ededede5;
+      }
+
+      .mima {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .shuru input {
+        font-size: 3.733vmin;
+        border: none;
+        outline: none;
+      }
+
+      .shuru input::placeholder {
+        color: var(--text4);
+      }
+
+      .shuru svg {
+        width: 4vmin;
+        height: 4vmin;
+        cursor: pointer;
+      }
+
+      .tongyi {
+        display: flex;
+        align-items: center;
+        gap: 1.333vmin;
+        padding: 4vmin 0;
+        font-size: 3.467vmin;
+        color: var(--text2);
+      }
+
+      .tongyi svg {
+        width: 3.467vmin;
+        height: 3.467vmin;
+        cursor: pointer;
+      }
+
+      .tongyi a {
+        color: var(--text-green);
+      }
+
+      button {
+        width: 100%;
+        height: 11.733vmin;
+        border-radius: 5.867vmin;
+        border: none;
+        background-color: #fafafa;
+        color: #d9dbde;
+        font-size: 4.267vmin;
+        cursor: pointer;
+      }
+
+      .forget {
+        padding-top: 4vmin;
+        text-align: center;
+        font-size: 3.733vmin;
+      }
+
+      .forget a {
+        color: var(--text3);
+      }
+
+      /* 第三方登录制作 */
+      .third-login {
+        width: 53.333vmin;
+        margin: 53.333vmin auto 18.667vmin;
+        /* background-color: pink; */
+      }
+
+      .third-login p {
+        display: flex;
+        justify-content: center;
+        height: 4.8vmin;
+        align-items: center;
+      }
+
+      .third-login p::before,
+      .third-login p::after {
+        content: "";
+        flex: 1;
+        height: 0.267vmin;
+        background-color: var(--text4);
+      }
+
+      .third-login p span {
+        width: 24vmin;
+        font-size: 3.2vmin;
+        text-align: center;
+        color: var(--text3);
+      }
+
+      .third-login a svg {
+        display: block;
+        width: 8vmin;
+        height: 8vmin;
+        margin: 4vmin auto;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- 顶部制作 -->
+    <div class="nav-bar">
+      <div class="back">
+        <a href="./仿优医问诊.html">
+          <svg
+            t="1773984055230"
+            class="icon"
+            viewBox="0 0 1024 1024"
+            version="1.1"
+            xmlns="http://www.w3.org/2000/svg"
+            p-id="5315"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <path
+              d="M369.728 512l384.768-384.704a48.64 48.64 0 0 0 0.896-68.8 48.64 48.64 0 0 0-68.736 0.96L269.44 476.736a48.704 48.704 0 0 0-11.136 17.344c-1.024 2.304-1.024 4.736-1.472 7.04-0.896 3.648-2.048 7.168-2.048 10.88 0 3.712 1.152 7.232 1.984 10.88 0.512 2.368 0.512 4.8 1.472 7.04a48.704 48.704 0 0 0 11.136 17.344l417.216 417.28a48.576 48.576 0 0 0 68.736 0.96 48.576 48.576 0 0 0-0.896-68.736L369.728 512z"
+              fill="#030000"
+              p-id="5316"
+            ></path>
+          </svg>
+        </a>
+      </div>
+      <a href="#" class="zhuce">注册</a>
+    </div>
+
+    <!-- 头部制作 -->
+    <div class="header">
+      <h1>密码登录</h1>
+      <a href="#"
+        >手机验证码登录
+        <svg
+          t="1773990796815"
+          class="icon"
+          viewBox="0 0 1024 1024"
+          version="1.1"
+          xmlns="http://www.w3.org/2000/svg"
+          p-id="9103"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+        >
+          <path
+            d="M386.640017 196.405191 687.536947 487.723004c13.840827 13.408717 13.840827 35.135036 0 48.543753s-36.293132 13.408717-50.156485 0L336.483532 244.948944c-13.840827-13.408717-13.840827-35.135036 0-48.543753S372.777687 182.996474 386.640017 196.405191z"
+            fill="#515151"
+            p-id="9104"
+          ></path>
+          <path
+            d="M336.483532 779.073583l300.895906-291.351603c13.863354-13.408717 36.316683-13.408717 50.156485 0 13.840827 13.408717 13.840827 35.135036 0 48.543753L386.640017 827.617336c-13.863354 13.408717-36.316683 13.408717-50.156485 0S322.642705 792.437246 336.483532 779.073583z"
+            fill="#515151"
+            p-id="9105"
+          ></path>
+        </svg>
+      </a>
+    </div>
+
+    <!-- form表单制作 -->
+    <!-- autocomplete="off"指不记录之前的输入内容 -->
+    <form action="" class="form" autocomplete="off">
+      <div class="shuru">
+        <!-- tel在移动端是数字键盘 -->
+        <input type="tel" placeholder="请输入手机号" />
+      </div>
+
+      <div class="shuru mima">
+        <input type="password" placeholder="请输入密码" />
+        <svg
+          t="1773993893905"
+          class="icon"
+          viewBox="0 0 1024 1024"
+          version="1.1"
+          xmlns="http://www.w3.org/2000/svg"
+          p-id="10390"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+        >
+          <path
+            d="M960 528.464c0 49.511-39.897 111.039-107.193 164.395-5.768 4.807-12.979 7.21-20.189 7.21-9.614 0-18.747-4.326-24.996-12.017-11.056-13.94-8.652-34.129 4.807-45.185 57.202-45.665 83.159-91.33 83.159-114.403 0-64.893-161.03-218.232-381.665-218.232-24.996 0-49.991 1.923-74.987 5.288-17.305 2.884-33.648-9.614-36.532-26.918-2.403-17.305 9.614-33.648 26.918-36.532 27.88-4.326 56.24-6.249 84.12-6.249C760.515 245.82 960 416.944 960 528.464zM832.137 784.669c12.498 12.498 12.498 32.687 0 45.185-6.249 6.249-14.421 9.614-22.592 9.614s-16.343-3.365-22.592-9.614l-62.489-62.489c-66.815 27.88-138.918 42.781-210.06 42.781C265.888 810.146 64 639.502 64 527.983c0-77.391 80.755-167.279 197.082-224l-64.893-64.893c-12.477-12.452-12.498-32.661-0.046-45.138l0.046-0.046c12.498-12.498 32.687-12.498 45.185 0l98.541 98.541 492.222 492.222zM449.511 528.464c0 35.571 28.841 64.412 64.412 64.412 10.094 0 19.708-2.403 28.841-6.73l-86.524-86.524c-4.326 8.653-6.729 18.266-6.729 28.842z m225.922 189.871l-85.562-85.562c-21.631 15.863-47.588 24.515-75.468 24.515-71.142 0-128.824-57.682-128.824-128.824 0-27.399 9.133-53.356 24.515-74.987l-99.983-100.464c-112.481 49.03-181.7 126.901-181.7 175.451 0 64.893 162.953 218.232 385.991 218.232 54.319-0.481 109.117-10.095 161.031-28.361z"
+            p-id="10391"
+            fill="#bfbfbf"
+          ></path>
+        </svg>
+      </div>
+
+      <div class="tongyi">
+        <svg
+          t="1773994719449"
+          class="icon"
+          viewBox="0 0 1024 1024"
+          version="1.1"
+          xmlns="http://www.w3.org/2000/svg"
+          p-id="11765"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+        >
+          <path
+            d="M511.807488 45.056C252.893184 45.056 43.008 254.941184 43.008 513.855488c0 258.90816 209.885184 468.799488 468.799488 468.799488 258.90816 0 468.799488-209.891328 468.799488-468.799488C980.609024 254.941184 770.715648 45.056 511.807488 45.056L511.807488 45.056zM511.807488 929.792c-229.71392 0-415.936512-186.222592-415.936512-415.936512 0-229.71392 186.222592-415.936512 415.936512-415.936512S927.744 284.141568 927.744 513.855488C927.744 743.569408 741.521408 929.792 511.807488 929.792L511.807488 929.792zM511.807488 929.792"
+            fill="#bfbfbf"
+            p-id="11766"
+          ></path>
+        </svg>
+        我已同意 <a href="#">用户协议</a> 及 <a href="#">隐私协议</a>
+      </div>
+
+      <button>登录</button>
+      <p class="forget"><a href="#">忘记密码 ？</a></p>
+    </form>
+
+    <!-- 第三方登录 -->
+    <div class="third-login">
+      <p>
+        <span>第三方登录</span>
+      </p>
+
+      <a href="#">
+        <svg
+          t="1773996401443"
+          class="icon"
+          viewBox="0 0 1024 1024"
+          version="1.1"
+          xmlns="http://www.w3.org/2000/svg"
+          p-id="13200"
+          data-spm-anchor-id="a313x.search_index.0.i9.61e03a81xYpTvi"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+        >
+          <path
+            d="M512 0C794.71078 0 1024 229.28922 1024 512 1024 794.728136 794.71078 1024 512 1024 229.271864 1024 0 794.728136 0 512 0 229.28922 229.271864 0 512 0z m299.719593 622.939119c-13.850034-80.479458-72.183322-133.241492-72.183322-133.241492 8.348203-73.068475-22.180881-86.050712-22.180881-86.050712-6.473763-226.199864-201.25939-222.208-205.35539-222.069152-4.113356-0.138847-198.933695-4.148068-205.303322 222.051796 0 0-30.581153 12.982237-22.250305 86.050712 0 0-58.315932 52.762034-72.183322 133.241492 0 0-0.260339 3.991864-0.208271 10.083796 0.034712 29.157966 5.501831 105.419932 66.802983 6.560543 0 0 16.661695 45.298983 47.242847 86.120135 0 0-54.653831 18.484068-50.019796 66.594712 0 0-1.857085 53.664542 116.614508 49.950373 0 0 83.256407-6.439051 108.248949-41.654237h22.076746c24.923119 35.215186 108.196881 41.654237 108.196881 41.654237 118.419525 3.714169 116.614508-49.950373 116.614509-49.950373 4.599322-48.110644-50.019797-66.594712-50.019797-66.594712 30.581153-40.751729 47.19078-86.120136 47.19078-86.120135 74.127186 119.408814 66.716203-16.626983 66.716203-16.626983z"
+            fill="#19A9F1"
+            p-id="13201"
+          ></path>
+        </svg>
+      </a>
+    </div>
+
+    <script src="../../JS/flexible.js"></script>
+  </body>
+</html>

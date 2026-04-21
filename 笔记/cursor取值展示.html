@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kennoily</title>
+    <style>
+      body {
+        font-family: "微软雅黑", Arial, sans-serif;
+        max-width: 1200px;
+        margin: 20px auto;
+        padding: 0 20px;
+        background: #f5f7fa;
+      }
+
+      h2 {
+        color: #333;
+        border-bottom: 2px solid #42b983;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+      }
+
+      .cursor-demo {
+        display: grid;
+        grid-template-columns: repeat(auto-wrap, minmax(200px, 1fr));
+        gap: 15px;
+        margin-bottom: 40px;
+      }
+
+      .cursor-item {
+        background: white;
+        padding: 25px 15px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        transition: transform 0.2s;
+      }
+
+      .cursor-item:hover {
+        transform: translateY(-3px);
+      }
+
+      .cursor-item p {
+        margin: 10px 0 0;
+        color: #666;
+        font-size: 14px;
+      }
+
+      /* 1. 核心常用光标 */
+      .cursor-default {
+        cursor: default;
+      }
+
+      .cursor-pointer {
+        cursor: pointer;
+      }
+
+      .cursor-text {
+        cursor: text;
+      }
+
+      .cursor-not-allowed {
+        cursor: not-allowed;
+      }
+
+      .cursor-move {
+        cursor: move;
+      }
+
+      .cursor-wait {
+        cursor: wait;
+      }
+
+      .cursor-help {
+        cursor: help;
+      }
+
+      /* 2. 方向/拖拽类光标 */
+      .cursor-grab {
+        cursor: grab;
+      }
+
+      .cursor-grabbing {
+        cursor: grabbing;
+      }
+
+      .cursor-se-resize {
+        cursor: se-resize;
+      }
+
+      .cursor-nw-resize {
+        cursor: nw-resize;
+      }
+
+      .cursor-crosshair {
+        cursor: crosshair;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h2>一、核心常用 cursor 取值</h2>
+    <div class="cursor-demo">
+      <div class="cursor-item cursor-default">
+        <strong>default</strong>
+        <p>默认箭头（不可交互）</p>
+      </div>
+
+      <div class="cursor-item cursor-pointer">
+        <strong>pointer</strong>
+        <p>手型（可点击元素）</p>
+      </div>
+
+      <div class="cursor-item cursor-text">
+        <strong>text</strong>
+        <p>I型（可输入文本）</p>
+      </div>
+
+      <div class="cursor-item cursor-not-allowed">
+        <strong>not-allowed</strong>
+        <p>禁止符号（禁用元素）</p>
+      </div>
+
+      <div class="cursor-item cursor-move">
+        <strong>move</strong>
+        <p>四向箭头（可移动元素）</p>
+      </div>
+
+      <div class="cursor-item cursor-wait">
+        <strong>wait</strong>
+        <p>加载转圈（加载中）</p>
+      </div>
+
+      <div class="cursor-item cursor-help">
+        <strong>help</strong>
+        <p>箭头+问号（帮助提示）</p>
+      </div>
+    </div>
+
+    <h2>二、方向/拖拽类 cursor 取值</h2>
+    <div class="cursor-demo">
+      <div
+        class="cursor-item cursor-grab"
+        onmousedown="this.classList.add('cursor-grabbing')"
+        onmouseup="this.classList.remove('cursor-grabbing')"
+      >
+        <strong>grab / grabbing</strong>
+        <p>抓取/已抓取（点击测试）</p>
+      </div>
+
+      <div class="cursor-item cursor-se-resize">
+        <strong>se-resize</strong>
+        <p>右下调整（文本域角落）</p>
+      </div>
+
+      <div class="cursor-item cursor-nw-resize">
+        <strong>nw-resize</strong>
+        <p>左上调整（窗口角落）</p>
+      </div>
+
+      <div class="cursor-item cursor-crosshair">
+        <strong>crosshair</strong>
+        <p>十字准星（绘图/定位）</p>
+      </div>
+    </div>
+  </body>
+</html>

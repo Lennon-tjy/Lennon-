@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kennoily</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: #1a252c;
+      }
+
+      .box {
+        display: flex;
+        margin: 350px auto;
+        justify-content: center;
+      }
+
+      .box-item {
+        /* position: relative; */
+        width: 240px;
+        height: 240px;
+        margin: 0 5px;
+        cursor: pointer;
+        border-radius: 6px;
+        background-color: pink;
+        /* 倒影效果 */
+        -webkit-box-reflect: below 1px linear-gradient(transparent, #0002);
+        transition: all 0.5s;
+      }
+
+      .box-item:hover {
+        transform: scale(1.2);
+        /* z-index: 100; */
+      }
+
+      /* 当鼠标停在父盒子上时，容器内所有.box-item中，除了鼠标正指着的那一个，其余全部变化*/
+      .box:hover .box-item:not(:hover) {
+        transform: perspective(500px) scale(0.9) rotateY(45deg);
+      }
+
+      /* 兄弟选择器，+是选择下一个兄弟，~是选择所有兄弟 */
+      .box-item:hover ~ .box-item {
+        transform: perspective(500px) scale(0.9) rotateY(-45deg) !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <div class="box-item"></div>
+      <div class="box-item"></div>
+      <div class="box-item"></div>
+      <div class="box-item"></div>
+      <div class="box-item"></div>
+    </div>
+  </body>
+</html>

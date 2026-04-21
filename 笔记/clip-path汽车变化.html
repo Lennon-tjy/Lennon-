@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kennoily</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: #f0f7ff;
+      }
+
+      .box {
+        width: 700px;
+        position: relative;
+        margin: 260px auto;
+      }
+
+      .box img {
+        position: absolute;
+        width: 100%;
+        top: 0;
+        left: 0;
+        transition: all 0.8s ease-in-out;
+      }
+
+      /* https://tools.jb51.net/static/api/css3path/index.html 用这个网站做clip-path效果 */
+      /* clip-path 不影响容器内部的布局*/
+
+      .box img:nth-child(2) {
+        -webkit-clip-path: polygon(0% 0%, 0 0, 0 45%, 0 100%, 0% 100%);
+        clip-path: polygon(0% 0%, 0 0, 0 45%, 0 100%, 0% 100%);
+      }
+
+      .box:hover img {
+        -webkit-clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
+        clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <img src="../img/bluecar.png" alt="" />
+      <img src="../img/orangecar.png" alt="" />
+    </div>
+  </body>
+</html>

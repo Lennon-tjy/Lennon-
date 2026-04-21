@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kennoily</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: #000;
+      }
+
+      .box {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+        gap: 8px;
+        max-width: 1320px;
+        height: 527px;
+        margin: 200px auto;
+        transition: all 0.5s;
+        overflow: hidden;
+      }
+
+      .box1,
+      .box2,
+      .box3,
+      .box4 {
+        position: relative;
+        background-color: #f0f7ff;
+        border-radius: 12px;
+      }
+
+      /* 子元素选择父元素 */
+      /* 鼠标经过子元素box1时，修改父元素box里面的份数*/
+      .box:has(.box1:hover) {
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+      }
+
+      /* 鼠标经过box2时，修改box里面的份数*/
+      .box:has(.box2:hover) {
+        grid-template-columns: 1fr 2fr 1fr 1fr;
+      }
+
+      /* 鼠标经过box3时，修改box里面的份数*/
+      .box:has(.box3:hover) {
+        grid-template-columns: 1fr 1fr 2fr 1fr;
+      }
+
+      /* 鼠标经过box4时，修改box里面的份数*/
+      .box:has(.box4:hover) {
+        grid-template-columns: 1fr 1fr 1fr 2fr;
+      }
+
+      .box p {
+        position: absolute;
+        bottom: -100px;
+        left: 0;
+        font-size: 32px;
+        font-weight: bold;
+        color: #000;
+        padding: 20px;
+      }
+
+      .box:hover p {
+        bottom: 0;
+        transition: all 0.5s;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <div class="box1">
+        <p>我</p>
+      </div>
+
+      <div class="box2">
+        <p>学</p>
+      </div>
+
+      <div class="box3">
+        <p>会</p>
+      </div>
+
+      <div class="box4">
+        <p>啦</p>
+      </div>
+    </div>
+  </body>
+</html>

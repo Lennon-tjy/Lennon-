@@ -1,0 +1,79 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "880336",
+      "name": "search",
+      "font_class": "search",
+      "unicode": "e6b9",
+      "unicode_decimal": 59065
+    },
+    {
+      "icon_id": "1226879",
+      "name": "browse",
+      "font_class": "browse",
+      "unicode": "e6c0",
+      "unicode_decimal": 59072
+    },
+    {
+      "icon_id": "15838447",
+      "name": "comment",
+      "font_class": "comment",
+      "unicode": "e668",
+      "unicode_decimal": 58984
+    },
+    {
+      "icon_id": "15838453",
+      "name": "customer-service",
+      "font_class": "customer-service",
+      "unicode": "e66a",
+      "unicode_decimal": 58986
+    },
+    {
+      "icon_id": "15838479",
+      "name": "fabulous",
+      "font_class": "fabulous",
+      "unicode": "e66f",
+      "unicode_decimal": 58991
+    },
+    {
+      "icon_id": "18126083",
+      "name": "Phone",
+      "font_class": "Phone",
+      "unicode": "e89a",
+      "unicode_decimal": 59546
+    },
+    {
+      "icon_id": "19653029",
+      "name": "arrow-right-bold",
+      "font_class": "arrow-right-bold",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    },
+    {
+      "icon_id": "19653030",
+      "name": "arrow-left-bold",
+      "font_class": "arrow-left-bold",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    },
+    {
+      "icon_id": "34442857",
+      "name": "favorites-fill",
+      "font_class": "favorites-fill",
+      "unicode": "e63b",
+      "unicode_decimal": 58939
+    },
+    {
+      "icon_id": "34452794",
+      "name": "cart-full",
+      "font_class": "cart-full",
+      "unicode": "e826",
+      "unicode_decimal": 59430
+    }
+  ]
+}

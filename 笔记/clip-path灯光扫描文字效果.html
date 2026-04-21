@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kennoily</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Microsoft YaHei", Arial, sans-serif;
+      }
+
+      body {
+        background-color: #1a252c;
+      }
+
+      h1 {
+        position: relative;
+        color: #292929;
+        font-size: 80px;
+        width: fit-content; /*重点*/
+        margin: 150px auto;
+        text-transform: uppercase; /*将小写字母转换为大写*/
+      }
+
+      h1::after {
+        content: "HELLOWORLD";
+        background: linear-gradient(
+          to right,
+          #ff69b3,
+          #fe0000,
+          #ffa401,
+          #ffff01,
+          #008102,
+          #40e1d2,
+          #410898,
+          #9400d4
+        );
+        background-clip: text;
+        color: transparent;
+
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        -webkit-clip-path: circle(50% at 50% 50%);
+        clip-path: circle(50px at 0% 50%); /* 大小 , x , y */
+        animation: move 3s linear infinite;
+      }
+
+      @keyframes move {
+        0% {
+          clip-path: circle(50px at 0% 50%);
+        }
+        50% {
+          clip-path: circle(50px at 100% 50%);
+        }
+        100% {
+          clip-path: circle(50px at 0% 50%);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>helloworld</h1>
+  </body>
+</html>

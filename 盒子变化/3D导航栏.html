@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kennoily</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: #1a252c;
+      }
+
+      ul {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        list-style: none;
+        gap: 300px;
+      }
+
+      ul li {
+        position: relative;
+        width: 400px;
+        height: 200px;
+        transform-style: preserve-3d;
+        transition: all 0.5s;
+      }
+
+      ul li span {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: block;
+        width: 100%;
+        height: 100%;
+        color: #fff;
+      }
+
+      ul li .front {
+        background-color: pink;
+        transform: translateZ(100px);
+      }
+
+      ul li .back {
+        background-color: #3b5999;
+        transform: translateY(100px) rotateX(-90deg);
+      }
+
+      ul li:hover {
+        transform: rotateX(90deg);
+      }
+    </style>
+  </head>
+  <body>
+    <ul>
+      <li>
+        <span class="front"></span>
+        <span class="back"></span>
+      </li>
+
+      <li>
+        <span class="front"></span>
+        <span class="back"></span>
+      </li>
+    </ul>
+  </body>
+</html>

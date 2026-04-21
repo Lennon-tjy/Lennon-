@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kennoily</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: #f0f7ff;
+      }
+
+      .boxx {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 50px;
+      }
+
+      .box {
+        width: 150px;
+        height: 150px;
+        background: url(https://img10.360buyimg.com/pcpubliccms/s1440x1440_jfs/t1/336151/1/4776/85082/68b53886F0d3281b9/c1cf2110339c0ad7.jpg.avif)
+          no-repeat center center/cover;
+      }
+
+      .item p {
+        text-align: center;
+        margin-top: 10px;
+      }
+
+      .box2 {
+        filter: blur(5px);
+      }
+
+      .box3 {
+        filter: brightness(150%);
+      }
+
+      .box4 {
+        filter: contrast(150%);
+      }
+
+      .box5 {
+        filter: saturate(150%);
+      }
+
+      .box6 {
+        filter: grayscale(150%);
+      }
+
+      .box7 {
+        filter: hue-rotate(90deg);
+      }
+
+      .box8 {
+        filter: sepia(100%);
+      }
+
+      .box9 {
+        filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.5));
+      }
+
+      .part1 {
+        position: relative;
+        width: 250px;
+        height: 100px;
+        background-color: pink;
+        border-radius: 15px;
+        text-align: center;
+        line-height: 100px;
+        margin: 100px auto;
+        /* 盒子阴影 */
+        /* box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);这个不适合 */
+        /* 滤镜阴影，给整个盒子加阴影 */
+        filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.5));
+      }
+
+      .part2 {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 30px;
+        height: 30px;
+        transform: translate(-50%, -50%) rotate(45deg);
+        background-color: pink;
+      }
+
+      /* 背景滤镜 */
+      .nav1,
+      .nav2 {
+        position: fixed;
+        left: 0;
+        width: 100%;
+        height: 80px;
+        /* background-color: pink; */
+        text-align: center;
+        line-height: 80px;
+      }
+
+      .nav1 {
+        backdrop-filter: saturate(150%) blur(28px);
+        background: transparent;
+        bottom: 200px;
+      }
+
+      .nav2 {
+        margin-top: 30px;
+        bottom: 50px;
+        background-image: radial-gradient(
+          transparent 1px,
+          #fff 1px
+        ); /*background-image可用来设置图片或颜色渐变，而background-color只能设置单一颜色*/
+        background-size: 4px 4px; /*背景缩放，把每个渐变单元限定在 4x4px 的正方形内*/
+        backdrop-filter: saturate(50%) blur(4px);
+      }
+
+      img {
+        display: block;
+        margin: 0 auto;
+        width: 700px;
+        height: 400px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="boxx">
+      <div class="item">
+        <div class="box box1"></div>
+        <p>正常图片</p>
+      </div>
+
+      <div class="item">
+        <div class="box box2"></div>
+        <p>filter: blur(5px)</p>
+      </div>
+
+      <div class="item">
+        <div class="box box3"></div>
+        <p>filter: brightness(150%)</p>
+      </div>
+
+      <div class="item">
+        <div class="box box4"></div>
+        <p>filter: contrast(150%)</p>
+      </div>
+
+      <div class="item">
+        <div class="box box5"></div>
+        <p>filter: saturate(150%)</p>
+        <p>饱和度</p>
+      </div>
+
+      <div class="item">
+        <div class="box box6"></div>
+        <p>filter: grayscale(150%)</p>
+      </div>
+
+      <div class="item">
+        <div class="box box7"></div>
+        <p>filter: hue-rotate(90deg)</p>
+        <p>色相旋转</p>
+      </div>
+
+      <div class="item">
+        <div class="box box8"></div>
+        <p>filter: sepia(100%)</p>
+        <p>褐色复古</p>
+      </div>
+
+      <div class="item">
+        <div class="box box9"></div>
+        <p>filter: drop-shadow()</p>
+      </div>
+    </div>
+
+    <div class="part1">
+      <div class="part2"></div>
+      <p>2026/03/17</p>
+    </div>
+
+    <img src="../img/雷军1.jpg" alt="" />
+    <div class="nav1">导航栏</div>
+    <div class="nav2">导航栏</div>
+  </body>
+</html>

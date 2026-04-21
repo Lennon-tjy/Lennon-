@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kennoily</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+      }
+
+      body {
+        background: linear-gradient(
+            /*0deg	从下 → 上	
+90deg	从左 → 右	
+180deg	从上 → 下	
+190deg	从上 → 下，再向左偏 10°*/
+            190deg,
+            rgb(67, 22, 219),
+            rgb(144, 118, 231) 98.38%
+          )
+          no-repeat;
+      }
+
+      .box {
+        position: relative;
+        width: 674px;
+        height: 500px;
+        margin: 0 auto;
+      }
+
+      .box1 {
+        position: absolute;
+        /*径向渐变*/
+        background: radial-gradient(
+          218.51% 281.09% /*渐变的宽占比 高占比*/ at 100% 100%
+            /*0% 0%是左上角，50% 50%是中心，100% 100%是右下角*/,
+
+          rgba(253, 63, 51, 0.6) 0%,
+          rgba(76, 0, 200, 0.6) 45%,
+          rgba(76, 28, 107, 0.6) 100%
+        );
+        width: 183px;
+        height: 120px;
+        top: 150px;
+        left: -37px;
+        border-radius: 10px;
+      }
+
+      .box2 {
+        position: absolute;
+        background: linear-gradient(
+          192.64deg,
+          rgba(67, 22, 219) 12.72%,
+          rgba(144, 118, 231) 54.49%,
+          rgba(162, 238, 255) 100%
+        );
+        width: 183px;
+        height: 120px;
+        top: 150px;
+        left: 176px;
+        border-radius: 10px;
+      }
+
+      .box3 {
+        position: absolute;
+        background: rgba(23, 12, 61, 0.3);
+        width: 701px;
+        height: 428px;
+        top: 200px;
+        left: 0px;
+        border-radius: 10px;
+        backdrop-filter: blur(10px);
+      }
+
+      .box4 {
+        position: absolute;
+        background: rgba(23, 12, 61, 0.2);
+        width: 400px;
+        height: 273px;
+        top: 370px;
+        left: 40px;
+        border-radius: 10px;
+        backdrop-filter: blur(10px);
+        box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 0px 0.5px inset; /*阴影水平偏移量 阴影垂直偏移量 阴影模糊半径 阴影扩展半径 内阴影*/
+      }
+
+      .box5 {
+        position: absolute;
+        background: rgba(23, 12, 61, 0.2);
+        width: 414px;
+        height: 273px;
+        top: 400px;
+        left: 340px;
+        border-radius: 10px;
+        backdrop-filter: blur(10px);
+        box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 0px 0.5px inset;
+      }
+
+      /* 选择box中的五个亲儿子 */
+      .box > * {
+        transform: rotateY(-20deg) rotateX(20deg); /*也可以用skewX(-10deg)*/
+        transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+      }
+
+      .box:hover .box1 {
+        transform: translate3d(-30px, -30px, 0);
+      }
+
+      .box:hover .box2 {
+        transform: translate3d(0, -30px, 0);
+      }
+
+      .box:hover .box3 {
+        transform: translate3d(0, 0, 0);
+      }
+
+      .box:hover .box4 {
+        transform: translate3d(-120px, 60px, 0);
+      }
+
+      .box:hover .box5 {
+        transform: translate3d(30px, 30px, 0);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <div class="box1">1</div>
+      <div class="box2">2</div>
+      <div class="box3">3</div>
+      <div class="box4">4</div>
+      <div class="box5">5</div>
+    </div>
+  </body>
+</html>

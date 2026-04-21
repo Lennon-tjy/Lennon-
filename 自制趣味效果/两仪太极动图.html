@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kennoily</title>
+  </head>
+
+  <body>
+    <div class="title">Lennon自制的两仪太极</div>
+    <div class="taiji-container">
+      <div class="taiji" id="taiji"></div>
+    </div>
+
+    <button class="control-btn" id="toggleBtn">开始旋转</button>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Comic Sans MS", cursive, sans-serif;
+      }
+
+      body {
+        width: 100vw;
+        height: 100vh;
+        background-color: blanchedalmond;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        flex-direction: column;
+        gap: 80px;
+      }
+
+      .taiji {
+        width: clamp(200px, 50vw, 400px);
+        height: clamp(200px, 50vw, 400px);
+        border-radius: 50%;
+        background: linear-gradient(to right, #fff 50%, #000 50%);
+        position: relative;
+        animation: rotate 0.01s linear infinite paused;
+        will-change: transform; /*优化动画渲染性能*/
+      }
+
+      .taiji.rotating {
+        animation-play-state: running;
+      }
+
+      @keyframes rotate {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      .taiji::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 50%;
+        height: 50%;
+        border-radius: 50%;
+        background: #000;
+      }
+
+      .taiji::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 50%;
+        height: 50%;
+        border-radius: 50%;
+        background: #fff;
+      }
+
+      .title {
+        position: absolute;
+        top: 100px;
+        font-size: clamp(1.5rem, 4vw, 2.5rem);
+        color: #fff;
+        text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        letter-spacing: 5px;
+      }
+
+      .control-btn {
+        padding: 12px 30px;
+        font-size: 20px;
+        background-color: #333;
+        color: #fff;
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+      }
+
+      .control-btn:hover {
+        background-color: #555;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+      }
+
+      .control-btn:active {
+        transform: translateY(0);
+      }
+
+      .control-btn.active {
+        background-color: #2ecc71;
+        box-shadow: 0 0 15px #2ecc71;
+      }
+
+      @media (max-width: 480px) {
+        .title {
+          top: 20px;
+          padding: 8px 20px;
+          letter-spacing: 3px;
+        }
+      }
+    </style>
+
+    <script>
+      const taiji = document.getElementById("taiji");
+      const toggleBtn = document.getElementById("toggleBtn");
+      let isRotating = false;
+
+      toggleBtn.addEventListener("click", () => {
+        isRotating = !isRotating;
+
+        if (isRotating) {
+          taiji.classList.add("rotating");
+          toggleBtn.textContent = "停止旋转";
+          toggleBtn.classList.add("active");
+        } else {
+          taiji.classList.remove("rotating");
+          toggleBtn.textContent = "开始旋转";
+          toggleBtn.classList.remove("active");
+        }
+      });
+    </script>
+  </body>
+</html>

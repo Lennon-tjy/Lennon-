@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kennoily</title>
+  </head>
+  <body>
+    <style>
+      /* 当屏幕尺寸大于等于1200px时，页面背景为绿色
+    当屏幕尺寸在768px到1200px时，页面背景为橙色
+    当屏幕尺寸小于768px时，页面背景为红色 */
+      @media screen and (min-width: 1200px) {
+        body {
+          background-color: green;
+        }
+      }
+
+      @media screen and (min-width: 768px) and (max-width: 1200px) {
+        body {
+          background-color: orange;
+        }
+      }
+
+      @media screen and (max-width: 768px) {
+        body {
+          background-color: red;
+        }
+      }
+    </style>
+  </body>
+</html>

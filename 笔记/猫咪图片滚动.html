@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kennoily</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        background-color: #f0f7ff;
+      }
+
+      .box {
+        position: relative;
+        width: 1280px;
+        height: 400px;
+        margin: 200px auto;
+        /* overflow: hidden; */
+      }
+
+      .box::before,
+      .box::after {
+        position: absolute;
+        left: 0;
+        content: "";
+        width: 100%;
+        height: 100px;
+        background-color: #f0f7ff;
+        border-radius: 50%;
+        z-index: 1;
+      }
+
+      .box::before {
+        content: "可爱的猫咪,滚动鼠标可以查看~";
+        top: -50px;
+        text-align: center;
+        line-height: 70px;
+        font-size: 30px;
+        color: #333;
+      }
+
+      .box::after {
+        bottom: -50px;
+      }
+
+      .box ul {
+        display: flex;
+        gap: 8px;
+        list-style: none;
+        height: 100%;
+        /*添加水平滚动条*/
+        overflow-x: scroll;
+        overflow-y: hidden;
+        scrollbar-width: none; /*不显示滚动条*/
+        scroll-behavior: smooth; /*平滑滚动*/
+      }
+
+      /* 不显示滚动条，适配谷歌或苹果浏览器 */
+      .box ul::-webkit-scrollbar {
+        display: none;
+      }
+
+      .box ul li {
+        flex: 0 0 400px; /*不拉伸，不伸缩，初始值为200px*/
+        height: 400px;
+        background-color: pink;
+      }
+
+      .box ul li img {
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <ul>
+        <li>
+          <a href="#"
+            ><img
+              src="https://ts2.tc.mm.bing.net/th/id/OIP-C.QSaRlqb514DphfyaYPBuhAHaHa?rs=1&pid=ImgDetMain&o=7&rm=3"
+              alt=""
+          /></a>
+        </li>
+        <li>
+          <a href="#"
+            ><img
+              src="https://ts4.tc.mm.bing.net/th/id/OIP-C.kO3gidba1ihbhoZkBetF7gHaHa?rs=1&pid=ImgDetMain&o=7&rm=3"
+              alt=""
+          /></a>
+        </li>
+        <li>
+          <a href="#"
+            ><img
+              src="https://ts3.tc.mm.bing.net/th/id/OIP-C.aok8NZ8VKT8tS2r4J15GiQHaHa?rs=1&pid=ImgDetMain&o=7&rm=3"
+              alt=""
+          /></a>
+        </li>
+        <li>
+          <a href="#"
+            ><img
+              src="https://tse4-mm.cn.bing.net/th/id/OIP-C.-JVzGq0PqL8hfKeteHQ3CQHaHa?o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3"
+              alt=""
+          /></a>
+        </li>
+        <li>
+          <a href="#"
+            ><img
+              src="https://ts3.tc.mm.bing.net/th/id/OIP-C.qI2SYtR_2UZ-qC7dzthTGAHaHa?rs=1&pid=ImgDetMain&o=7&rm=3"
+              alt=""
+          /></a>
+        </li>
+        <li>
+          <a href="#"
+            ><img
+              src="https://bpic.588ku.com/element_origin_min_pic/24/06/21/13f5d495f1724036ce97ffcf543f12d6.jpg!r650"
+              alt=""
+          /></a>
+        </li>
+        <li>
+          <a href="#"
+            ><img
+              src="https://img.shetu66.com/2023/04/25/1682391068745168.png"
+              alt=""
+          /></a>
+        </li>
+        <li>
+          <a href="#"
+            ><img
+              src="https://bpic.588ku.com/element_origin_min_pic/23/12/28/fe1b979feaf47bd2f63a54a06a8579ad.jpg"
+              alt=""
+          /></a>
+        </li>
+        <li>
+          <a href="#"><img src="" alt="" /></a>
+        </li>
+        <li>
+          <a href="#"><img src="" alt="" /></a>
+        </li>
+        <li>
+          <a href="#"><img src="" alt="" /></a>
+        </li>
+        <li>
+          <a href="#"><img src="" alt="" /></a>
+        </li>
+      </ul>
+    </div>
+
+    <script>
+      //获取可滚动容器
+      const scrollContainer = document.querySelector(".box ul");
+
+      //监听滚轮事件
+      scrollContainer.addEventListener("wheel", (e) => {
+        //阻止默认滚动行为
+        e.preventDefault();
+
+        //乘系数可调整滚动灵敏度
+        scrollContainer.scrollLeft += e.deltaY * 2.0;
+      });
+    </script>
+  </body>
+</html>
